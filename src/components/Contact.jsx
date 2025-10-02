@@ -8,9 +8,6 @@ import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
 
-//template_6sqyumw
-// service_sxcsjlc
-//2c-QZKQfzxOJDKzuO
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({
@@ -37,10 +34,8 @@ const Contact = () => {
 
     emailjs
       .send(
-        // import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        // import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        'template_6sqyumw',
-        'service_sxcsjlc',
+        'service_l0b4x7g',
+        'template_2k5h4w8',
         {
           from_name: form.name,
           to_name: "Saikiran Nannapaneni",
@@ -48,8 +43,7 @@ const Contact = () => {
           to_email: "sai8844n@gmail.com",
           message: form.message,
         },
-        '2c-QZKQfzxOJDKzuO'
-        // import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        'OUjLW7vHiuveU0mnT'
       )
       .then(
         () => {

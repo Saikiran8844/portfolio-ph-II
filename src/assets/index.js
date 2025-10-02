@@ -26,12 +26,6 @@ import mysql from './tech/mysql.png';
 import kubernates from './tech/kubectl.png';
 
 import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
-import starbucks from "./company/starbucks.png";
-import tesla from "./company/tesla.png";
-import tcs from "./company/tcs.png";
-import intelligence from "./company/intelligence.png";
-import intelligence2 from "./intelligence2.jpg";
 import sun from "./company/sun.png";
 import thales from "./company/image.png";
 import kodnest from "./company/kodnest.png";
@@ -72,19 +66,13 @@ export {
   springboot,
   meta,
   thales,
-  shopify,
-  starbucks,
-  tesla,
   carrent,
   jobit,
   tripguide,
-  tcs,
-  intelligence,
   sun,
   payment,
   boc,
   project2,
-  intelligence2,
   kodnest,
   rental
 };
