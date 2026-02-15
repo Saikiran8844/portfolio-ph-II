@@ -61,12 +61,11 @@ const Navbar = () => {
             <a href="https://github.com/Saikiran8844"  target="_blank">
                 <img src={github} alt="" className='w-9 h-9' />
             </a>
-            
             </div>
        
         </div>
 
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
+        <ul className='list-none hidden sm:flex flex-row gap-10 items-center'>
           {navLinks.map((nav) => (
             <li
               key={nav.id}
@@ -78,6 +77,12 @@ const Navbar = () => {
               <a href={`#${nav.id}`}>{nav.title}</a>
             </li>
           ))}
+          <li className='text-secondary hover:text-white text-[18px] font-medium cursor-pointer'>
+            <button
+              onClick={() => window.open(import.meta.env.VITE_RESUME_URL, "_blank")}>
+              Resume
+            </button>
+          </li>
         </ul>
 
         <div className='sm:hidden flex flex-1 justify-end items-center'>
@@ -108,6 +113,12 @@ const Navbar = () => {
                   <a href={`#${nav.id}`}>{nav.title}</a>
                 </li>
               ))}
+              <li className='text-secondary hover:text-white text-[18px] font-medium cursor-pointer'>
+                <button
+                  onClick={() => window.open(import.meta.env.VITE_RESUME_URL, "_blank")}>
+                  Resume
+                </button>
+              </li>
             </ul>
           </div>
         </div>
