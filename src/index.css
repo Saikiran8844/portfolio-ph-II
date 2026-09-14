@@ -114,6 +114,123 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* ── Hero CTA Buttons ── */
+.hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: linear-gradient(135deg, #915EFF, #6b3fd4);
+  color: #fff;
+  box-shadow: 0 0 24px rgba(145, 94, 255, 0.35);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+.hero-btn-primary:hover {
+  box-shadow: 0 0 40px rgba(145, 94, 255, 0.6);
+}
+.hero-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: transparent;
+  color: #915EFF;
+  border: 1.5px solid #915EFF;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+.hero-btn-secondary:hover {
+  background: rgba(145, 94, 255, 0.1);
+  box-shadow: 0 0 24px rgba(145, 94, 255, 0.25);
+}
+
+/* ── Floating Pill Navbar ── */
+.floating-nav {
+  background: rgba(5, 8, 22, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.floating-nav.scrolled {
+  border-color: rgba(145, 94, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(145, 94, 255, 0.12);
+}
+
+/* ── Project Card Glow ── */
+.card-glow-wrapper {
+  position: relative;
+}
+.card-glow-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 18px;
+  background: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.35s ease;
+  filter: blur(12px);
+}
+.card-glow-wrapper:hover::before {
+  opacity: 0.7;
+}
+
+/* ── Tech Icon Float Animation ── */
+@keyframes techFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-7px); }
+}
+.tech-float {
+  animation: techFloat 3s ease-in-out infinite;
+}
+
+/* ── Marquee Ticker ── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ── Custom Cursor (desktop only) ── */
+@media (pointer: fine) {
+  * { cursor: none !important; }
+  .cursor-dot {
+    width: 8px;
+    height: 8px;
+    background: #915EFF;
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    box-shadow: 0 0 10px #915EFF, 0 0 20px rgba(145,94,255,0.5);
+  }
+  .cursor-ring {
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid rgba(145,94,255,0.6);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.12s ease;
+  }
+}
+
 /* canvas- styles */
 .canvas-loader {
   font-size: 10px;

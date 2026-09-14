@@ -8,7 +8,8 @@ import Works from "./Works";
 import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
 import CanvasLoader from "./Loader";
-
+import Certifications from "./Certifications";
+import CustomCursor from "./CustomCursor";
 
 export {
   Hero,
@@ -20,8 +21,10 @@ export {
   Feedbacks,
   Contact,
   CanvasLoader,
-  EarthCanvas, 
-  BallCanvas, 
-  ComputersCanvas, 
-  StarsCanvas
+  EarthCanvas,
+  BallCanvas,
+  ComputersCanvas,
+  StarsCanvas,
+  Certifications,
+  CustomCursor,
 };
