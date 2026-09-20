@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider, useTheme } from "./context/ThemeContext";
 
 import {
   About,
@@ -10,39 +11,58 @@ import {
   Tech,
   Works,
   StarsCanvas,
-  Certifications,
   CustomCursor,
   CanvasLoader,
 } from "./components";
 import FloatingResume from "./components/FloatingResume";
 
+const PortfolioContent = () => {
+  const { isKurama } = useTheme();
+
+  return (
+    <div
+      className={`relative z-0 min-h-screen transition-colors duration-700 ${
+        isKurama
+          ? "bg-[#090305] text-white selection:bg-[#ff0055] selection:text-white"
+          : "bg-[#070b09] text-white selection:bg-[#f59e0b] selection:text-black"
+      }`}
+    >
+      <CustomCursor />
+
+      {/* Header with Naruto / Kurama Switcher */}
+      <Navbar />
+
+      {/* Hero with Natural Sage Mode vs Kurama Nine-Tails Mode */}
+      <Hero />
+
+      {/* Main Sections */}
+      <About />
+      <div id="skills">
+        <Tech />
+      </div>
+      <Experience />
+      <Works />
+
+      {/* Contact + 3D Chakra Stars Canvas */}
+      <div className="relative z-0">
+        <Contact />
+        <Suspense fallback={<CanvasLoader />}>
+          <StarsCanvas />
+        </Suspense>
+      </div>
+
+      <FloatingResume />
+    </div>
+  );
+};
+
 const App = () => {
   return (
-    <BrowserRouter>
-      <CustomCursor />
-      <div className="relative z-0 bg-primary">
-        {/* Hero — full-screen cinematic, no bg pattern needed */}
-        <Navbar />
-        <Hero />
-
-        {/* Main content */}
-        <About />
-        <Experience />
-        <Tech />
-        <Certifications />
-        <Works />
-
-        {/* Contact + Star canvas */}
-        <div className="relative z-0">
-          <Contact />
-          <Suspense fallback={<CanvasLoader />}>
-            <StarsCanvas />
-          </Suspense>
-        </div>
-
-        <FloatingResume />
-      </div>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <PortfolioContent />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 };
 

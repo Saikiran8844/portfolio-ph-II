@@ -8,7 +8,6 @@ import Works from "./Works";
 import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
 import CanvasLoader from "./Loader";
-import Certifications from "./Certifications";
 import CustomCursor from "./CustomCursor";
 
 export {
@@ -25,6 +24,5 @@ export {
   BallCanvas,
   ComputersCanvas,
   StarsCanvas,
-  Certifications,
   CustomCursor,
 };

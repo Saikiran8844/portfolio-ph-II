@@ -7,6 +7,8 @@ import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 import heroAvatar from "./hero_avatar.jpg";
+import narutoAvatar from "./naruto_avatar.jpg";
+import kuramaAvatar from "./kurama_avatar.jpg";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -41,6 +43,8 @@ export {
   menu,
   close,
   heroAvatar,
+  narutoAvatar,
+  kuramaAvatar,
   css,
   docker,
   git,

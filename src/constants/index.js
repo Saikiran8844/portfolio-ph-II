@@ -11,113 +11,153 @@ import {
   springboot,
   docker,
   kubernates,
+  tailwind,
+  typescript,
   thales,
   boc,
   project2,
 } from "../assets";
 
-// CDN icon URLs for technologies not available as local assets
-const CDN = {
+// High-reliability local & CDN icons
+const ICONS = {
   aws: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
   gcp: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg",
   redis: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg",
-  keycloak: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oauth/oauth-original.svg",
   postman: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg",
   datadog: "https://cdn.worldvectorlogo.com/logos/datadog.svg",
   angular: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg",
   python: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
   kubernetes: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg",
+  nextjs: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+  vite: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg",
+  bun: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bun/bun-original.svg",
+  playwright: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-original.svg",
+  cucumber: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cucumber/cucumber-plain.svg",
+  shopify: "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/shopify.svg",
+  claude: "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/anthropic.svg",
+  greensock: "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/greensock.svg",
+  keycloak: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oauth/oauth-original.svg",
 };
 
 export const navLinks = [
-  { id: "about",   title: "About" },
-  { id: "work",    title: "Experience" },
+  { id: "about", title: "Overview" },
+  { id: "skills", title: "Skills" },
+  { id: "work", title: "Experience" },
   { id: "projects", title: "Projects" },
   { id: "contact", title: "Contact" },
 ];
 
 const services = [
   {
-    title: "Backend & Microservices",
+    title: "Cloud & Microservices (Thales)",
+    tag: "SPECIAL GRADE BACKEND",
     icon: backend,
-    description: "Spring Boot · REST/SOAP · Redis · Event-Driven Arch",
+    description: "Java 17/21 · Spring Boot 3 · K8s · Redis · 10k+ Daily Txns (<200ms) · 99.9% Uptime SLA",
+    color: "#ff3b00",
   },
   {
-    title: "Cloud & DevOps",
-    icon: devOps,
-    description: "AWS · GCP · Kubernetes · CI/CD · Docker",
-  },
-  {
-    title: "Enterprise Integrations & SSO",
+    title: "Shopify & E-Commerce Architect",
+    tag: "STOREFRONT & LIQUID",
     icon: web,
-    description: "SAP · Salesforce · MuleSoft · SAML 2.0 · Okta · Keycloak",
+    description: "Custom Liquid Themes · Storefront API · Webhook ERP Sync · 100/100 Core Web Vitals",
+    color: "#10b981",
   },
   {
-    title: "AI-Powered Automation",
+    title: "Modern Frontend & Motion",
+    tag: "REACT 19 & NEXT.JS 15",
+    icon: devOps,
+    description: "React 19 · Next.js 15 · Vite · Bun · GSAP Animations · Tailwind CSS · 60fps Smooth UI",
+    color: "#f59e0b",
+  },
+  {
+    title: "AI Engineering & Automation",
+    tag: "AUTONOMOUS AGENTS",
     icon: AI,
-    description: "LiteLLM · LLM Tooling · Playwright · Test Gen · MCP",
+    description: "ChatGPT & Claude APIs · LiteLLM · Schema Migration CLI · Playwright BDD (~90% Coverage)",
+    color: "#38bdf8",
   },
 ];
 
-// Grouped by domain for the new bento-style tech section
 export const techGroups = [
   {
-    label: "Backend",
+    label: "Core Backend & Cloud Architecture",
+    tag: "SPECIAL GRADE",
     techs: [
-      { name: "Java",        icon: java },
+      { name: "Java", icon: java },
       { name: "Spring Boot", icon: springboot },
-      { name: "Python",      icon: CDN.python },
-      { name: "Node.js",     icon: reactjs },   // placeholder — keeping reactjs for now
-      { name: "MySQL",       icon: mysql },
-      { name: "Redis",       icon: CDN.redis },
+      { name: "Python", icon: ICONS.python },
+      { name: "Kubernetes", icon: ICONS.kubernetes },
+      { name: "Docker", icon: docker },
+      { name: "AWS", icon: ICONS.aws },
+      { name: "GCP", icon: ICONS.gcp },
+      { name: "Redis", icon: ICONS.redis },
+      { name: "MySQL", icon: mysql },
+      { name: "Git", icon: git },
     ],
   },
   {
-    label: "Cloud & DevOps",
+    label: "E-Commerce, Shopify & Performance",
+    tag: "CONVERSION & SEO",
     techs: [
-      { name: "AWS",        icon: CDN.aws },
-      { name: "GCP",        icon: CDN.gcp },
-      { name: "Docker",     icon: docker },
-      { name: "Kubernetes", icon: CDN.kubernetes },
-      { name: "Git",        icon: git },
+      { name: "Shopify", icon: ICONS.shopify },
+      { name: "Liquid", icon: ICONS.shopify },
+      { name: "Storefront API", icon: ICONS.shopify },
+      { name: "Tech SEO", icon: ICONS.gcp },
+      { name: "Core Vitals", icon: ICONS.greensock },
     ],
   },
   {
-    label: "Frontend & APIs",
+    label: "Modern Frontend & Motion Engineering",
+    tag: "60 FPS FLUID UX",
     techs: [
-      { name: "Angular",    icon: CDN.angular },
-      { name: "React",      icon: reactjs },
+      { name: "React 19", icon: reactjs },
+      { name: "Next.js 15", icon: ICONS.nextjs },
+      { name: "GSAP", icon: ICONS.greensock },
+      { name: "TypeScript", icon: typescript },
       { name: "JavaScript", icon: javascript },
-      { name: "Postman",    icon: CDN.postman },
+      { name: "Vite", icon: ICONS.vite },
+      { name: "Bun", icon: ICONS.bun },
+      { name: "Tailwind", icon: tailwind },
+      { name: "Angular", icon: ICONS.angular },
     ],
   },
   {
-    label: "Security & Monitoring",
+    label: "AI Engineering & Automated Testing",
+    tag: "INTELLIGENT TOOLING",
     techs: [
-      { name: "Okta / SAML",  icon: CDN.keycloak },
-      { name: "Datadog",      icon: CDN.datadog },
+      { name: "Claude 3.5", icon: ICONS.claude },
+      { name: "ChatGPT API", icon: ICONS.playwright },
+      { name: "LiteLLM", icon: ICONS.python },
+      { name: "Playwright", icon: ICONS.playwright },
+      { name: "Cucumber BDD", icon: ICONS.cucumber },
+      { name: "Okta / SAML", icon: ICONS.keycloak },
+      { name: "Datadog", icon: ICONS.datadog },
+      { name: "Postman", icon: ICONS.postman },
     ],
   },
 ];
 
-// Flat list kept for marquee ticker
 const technologies = [
-  { name: "Java",        icon: java },
+  { name: "Java", icon: java },
   { name: "Spring Boot", icon: springboot },
-  { name: "Python",      icon: CDN.python },
-  { name: "MySQL",       icon: mysql },
-  { name: "Redis",       icon: CDN.redis },
-  { name: "AWS",         icon: CDN.aws },
-  { name: "GCP",         icon: CDN.gcp },
-  { name: "Docker",      icon: docker },
-  { name: "Kubernetes",  icon: CDN.kubernetes },
-  { name: "Git",         icon: git },
-  { name: "Angular",     icon: CDN.angular },
-  { name: "React",       icon: reactjs },
-  { name: "JavaScript",  icon: javascript },
-  { name: "Postman",     icon: CDN.postman },
-  { name: "Okta/SAML",   icon: CDN.keycloak },
-  { name: "Datadog",     icon: CDN.datadog },
+  { name: "Shopify", icon: ICONS.shopify },
+  { name: "React", icon: reactjs },
+  { name: "Next.js", icon: ICONS.nextjs },
+  { name: "GSAP", icon: ICONS.greensock },
+  { name: "TypeScript", icon: typescript },
+  { name: "Kubernetes", icon: ICONS.kubernetes },
+  { name: "Docker", icon: docker },
+  { name: "AWS", icon: ICONS.aws },
+  { name: "GCP", icon: ICONS.gcp },
+  { name: "Redis", icon: ICONS.redis },
+  { name: "MySQL", icon: mysql },
+  { name: "Python", icon: ICONS.python },
+  { name: "Claude 3.5", icon: ICONS.claude },
+  { name: "Playwright", icon: ICONS.playwright },
+  { name: "Tailwind", icon: tailwind },
+  { name: "Bun", icon: ICONS.bun },
+  { name: "Vite", icon: ICONS.vite },
+  { name: "Datadog", icon: ICONS.datadog },
 ];
 
 const experiences = [
@@ -125,112 +165,159 @@ const experiences = [
     title: "Software Engineer II",
     company_name: "Thales India Pvt Ltd",
     icon: thales,
-    iconBg: "#f4f4f4",
+    iconBg: "#1a102f",
     date: "April 2023 — Present",
     location: "Noida, India",
+    badge: "SPECIAL GRADE FULL-STACK",
     groups: [
       {
         label: "Platform & Backend Engineering",
         points: [
-          "Designed Spring Boot microservices for customer onboarding, entitlement management, and self-service licensing across enterprise B2B/B2C platforms.",
-          "Optimized service orchestration with async processing and Redis caching — 10,000+ daily API transactions at sub-200ms latency.",
-          "Built extensible licensing frameworks and REST/SOAP integration layers bridging modern and legacy systems; standardized API contracts with Swagger/OpenAPI.",
+          "Architected Spring Boot microservices powering customer onboarding, entitlement management, and self-service licensing across enterprise B2B/B2C platforms.",
+          "Optimized service orchestration with asynchronous queue processing and Redis caching, sustaining 10,000+ daily API transactions at sub-200ms latency.",
+          "Engineered extensible licensing frameworks and REST/SOAP integration layers; standardized enterprise contracts with OpenAPI/Swagger.",
         ],
       },
       {
         label: "Security, Integrations & Enterprise Solutions",
         points: [
-          "Reduced onboarding time 25% via SAML 2.0 and Okta SSO implementation.",
-          "Automated license provisioning across SAP, Salesforce, MuleSoft, and ERP systems — 35% efficiency gain.",
-          "Delivered customizable enterprise integrations through REST APIs, SOAP, and plugin extensions without modifying core platform services.",
+          "Accelerated enterprise client onboarding time by 25% via SAML 2.0 and Okta SSO implementation.",
+          "Automated license provisioning across SAP, Salesforce, MuleSoft, and ERP systems, slashing manual toil by 35%.",
+          "Delivered plugin-based integration layers allowing custom enterprise workflows without altering core microservice engines.",
         ],
       },
       {
         label: "Cloud, Reliability & DevOps",
         points: [
-          "Containerized microservices on Kubernetes/GKE with CI/CD pipelines — 99.9% availability.",
-          "Engineered event-driven architecture with retries, DLQs, and circuit breakers.",
-          "Reduced operational overhead 40% via Kubernetes CronJob automation; improved observability with Datadog dashboards and centralized audit logging.",
+          "Containerized and orchestrated services on Kubernetes (GKE) and cloud pipelines, guaranteeing 99.9% uptime SLA.",
+          "Engineered resilient event-driven architectures with automated retries, dead-letter queues (DLQs), and circuit breakers.",
+          "Cut operational overhead by 40% using Kubernetes CronJobs for scheduled workflows; implemented Datadog telemetry dashboards.",
         ],
       },
       {
         label: "AI, Automation & Engineering Leadership",
         points: [
-          "Built internal AI-powered engineering tools (LiteLLM, Python, Flask) for test generation and workflow automation.",
-          "Built an LLM-powered database migration assistant; raised automated test coverage to ~90% with Cucumber/Playwright + LLM-assisted frameworks.",
-          "Mentored junior engineers; collaborated cross-functionally with architects, QA, and DevOps in Agile sprints.",
+          "Built internal AI-powered developer utilities using LiteLLM, Python, and Flask to auto-generate tests and automate code reviews.",
+          "Developed an LLM-assisted database schema migration assistant; raised test automation coverage to ~90% with Cucumber & Playwright.",
+          "Mentored junior engineers and led technical architecture discussions across cross-functional squads in Agile cadences.",
         ],
       },
     ],
-    // Flat list for any component that needs it
+    get points() {
+      return this.groups.flatMap(g => g.points);
+    },
+  },
+  {
+    title: "Freelance Full-Stack & Shopify Architect",
+    company_name: "Independent Consultant",
+    icon: web,
+    iconBg: "#0e2a27",
+    date: "2023 — Present",
+    location: "Remote / Global",
+    badge: "E-COMMERCE & STOREFRONT ARCHITECT",
+    groups: [
+      {
+        label: "Shopify & Headless Store Engineering",
+        points: [
+          "Engineered bespoke Shopify themes with Liquid, custom modular sections, and dynamic cart-drawer optimizations for high conversion rates.",
+          "Integrated Shopify Storefront API and custom webhook endpoints to synchronize product catalogs, multi-channel inventory, and orders across ERPs.",
+          "Audited and rebuilt storefront architectures for 100/100 Core Web Vitals, sub-second LCP, and top Google Search ranking indexation.",
+        ],
+      },
+      {
+        label: "Creative Frontends & Motion (GSAP + Next.js)",
+        points: [
+          "Developed interactive web applications using React 19, Next.js 15, Vite, Bun, and GSAP scroll-triggered animations.",
+          "Engineered responsive, accessible UI components with Tailwind CSS and Framer Motion with fluid 60fps micro-interactions.",
+        ],
+      },
+    ],
     get points() {
       return this.groups.flatMap(g => g.points);
     },
   },
 ];
 
-const certifications = [
-  {
-    title: "Postman API Fundamentals",
-    subtitle: "Student Expert",
-    issuer: "Postman",
-    icon: "🔬",
-    color: "#FF6C37",
-    link: "https://api.badgr.com/public/assertions/nHB-7oBFTCuaLWFkHdJXCw",
-  },
-  {
-    title: "Google Cloud Machine Learning",
-    subtitle: "Vertex AI",
-    issuer: "Google Cloud",
-    icon: "☁️",
-    color: "#4285F4",
-    link: "https://www.cloudskillsboost.google/public_profiles/4d1bef4c-dab9-4a18-88db-d89d68e8b22a",
-  },
-  {
-    title: "Quarterly Recognition Award",
-    subtitle: "Employee Excellence",
-    issuer: "Thales India",
-    icon: "🏆",
-    color: "#915EFF",
-    link: "#",
-  },
-];
-
 const projects = [
   {
-    name: "BackOffice Connector Chatbot",
+    name: "AI Database Migration Assistant",
+    tag: "AI & DATABASE AUTOMATION",
     description:
-      "Backend service for a personal assistant chatbot — REST APIs for user management, conversation handling, and subscription services, secured with JWT and documented via Swagger UI.",
+      "AI-driven database schema transformation & validation engine using LiteLLM, Python, and Flask. Converts legacy schemas into optimized DDL scripts with risk analysis and automated reports.",
     tags: [
-      { name: "Java",        color: "blue-text-gradient" },
+      { name: "Python", color: "blue-text-gradient" },
+      { name: "LiteLLM", color: "green-text-gradient" },
+      { name: "ChatGPT / Claude", color: "pink-text-gradient" },
+      { name: "MySQL", color: "orange-text-gradient" },
+    ],
+    image: boc,
+    source_code_link: "https://github.com/Saikiran8844",
+  },
+  {
+    name: "Shopify E-Commerce & Inventory Hub",
+    tag: "HEADLESS STOREFRONT & LIQUID",
+    description:
+      "Headless Shopify storefront & automated webhook synchronization engine. Integrates Shopify Storefront API with ERP inventory, featuring bespoke Liquid components and 100/100 Core Web Vitals.",
+    tags: [
+      { name: "Shopify", color: "green-text-gradient" },
+      { name: "Liquid", color: "blue-text-gradient" },
+      { name: "Next.js", color: "pink-text-gradient" },
+      { name: "Tech SEO", color: "orange-text-gradient" },
+    ],
+    image: project2,
+    source_code_link: "https://nannapaneni-saikiran.vercel.app/",
+  },
+  {
+    name: "AI BDD & Playwright Test Engine",
+    tag: "AUTOMATED TESTING & BDD",
+    description:
+      "Automated end-to-end testing pipeline translating Jira user stories into executable Gherkin scenarios with Cucumber and Playwright, boosting automated test coverage to ~90%.",
+    tags: [
+      { name: "Playwright", color: "green-text-gradient" },
+      { name: "Cucumber", color: "blue-text-gradient" },
+      { name: "Python", color: "pink-text-gradient" },
+      { name: "CI/CD", color: "orange-text-gradient" },
+    ],
+    image: boc,
+    source_code_link: "https://github.com/Saikiran8844",
+  },
+  {
+    name: "BackOffice Connector Chatbot",
+    tag: "ENTERPRISE JAVA MICROSERVICE",
+    description:
+      "High-throughput backend service for conversational user & subscription management — REST APIs secured with JWT, OpenAPI/Swagger docs, and MySQL persistence.",
+    tags: [
+      { name: "Java", color: "blue-text-gradient" },
       { name: "Spring Boot", color: "green-text-gradient" },
-      { name: "MySQL",       color: "pink-text-gradient" },
-      { name: "Swagger UI",  color: "orange-text-gradient" },
+      { name: "MySQL", color: "pink-text-gradient" },
+      { name: "Swagger", color: "orange-text-gradient" },
     ],
     image: boc,
     source_code_link: "https://github.com/Saikiran8844/back-office-connector-chatbot",
   },
   {
     name: "OAuth Letter Editor",
+    tag: "CLOUD DOCUMENT PLATFORM",
     description:
-      "Letter editor with OAuth 2.0 secure login, MySQL storage, and Google Drive integration — users can edit and save documents directly to their personal cloud storage.",
+      "Secure document editor with OAuth 2.0 authentication, MySQL database storage, and Google Drive cloud integration for real-time document creation and synchronization.",
     tags: [
-      { name: "React",      color: "blue-text-gradient" },
-      { name: "OAuth 2.0",  color: "green-text-gradient" },
-      { name: "Node.js",    color: "pink-text-gradient" },
-      { name: "MySQL",      color: "orange-text-gradient" },
+      { name: "React", color: "blue-text-gradient" },
+      { name: "OAuth 2.0", color: "green-text-gradient" },
+      { name: "Node.js", color: "pink-text-gradient" },
+      { name: "Cloud Drive", color: "orange-text-gradient" },
     ],
     image: project2,
     source_code_link: "https://o-auth2-0-nine.vercel.app/",
   },
   {
     name: "MediAssist.ai",
+    tag: "HEALTHCARE NLP & CLOUD",
     description:
-      "Document understanding pipeline using Hugging Face QA + NER to analyze medical reports, summarize findings in plain language, and cross-check medications via OpenFDA. FastAPI + Next.js with JWT auth and S3-compatible storage.",
+      "Medical NLP document understanding pipeline using Hugging Face QA + NER to analyze clinical reports, cross-referencing medications via OpenFDA and generating plain-language summaries.",
     tags: [
-      { name: "Python",       color: "blue-text-gradient" },
-      { name: "FastAPI",      color: "green-text-gradient" },
-      { name: "Next.js",      color: "pink-text-gradient" },
+      { name: "Python", color: "blue-text-gradient" },
+      { name: "FastAPI", color: "green-text-gradient" },
+      { name: "Next.js", color: "pink-text-gradient" },
       { name: "Hugging Face", color: "orange-text-gradient" },
     ],
     image: boc,
@@ -246,5 +333,4 @@ export {
   experiences,
   testimonials,
   projects,
-  certifications,
 };
