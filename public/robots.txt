@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://saikiran.dev/sitemap.xml
+
+# Disallow specific paths (if needed)
+# User-agent: *
+# Disallow: /api/
+# Disallow: /admin/
