@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://saikiran.dev/sitemap.xml
+Sitemap: https://nannapaneni-saikiran.vercel.app/sitemap.xml
 
 # Disallow specific paths (if needed)
 # User-agent: *
