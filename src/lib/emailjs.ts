@@ -15,6 +15,17 @@ export interface SendEmailParams {
   projectType?: string;
 }
 
+export interface SendFeedbackParams {
+  name: string;
+  email: string;
+  role: string;
+  company?: string;
+  project: string;
+  rating: number;
+  message: string;
+  consentToFeature: boolean;
+}
+
 export async function sendEmail({
   name,
   email,
@@ -35,19 +46,53 @@ export async function sendEmail({
       to_email: EMAILJS_CONFIG.recipientEmail,
       message: fullMessage,
     },
-
     EMAILJS_CONFIG.publicKey
-  ).then(
-    () => {
-      alert("Thank you. I will get back to you as soon as possible.");
-
-
-    },
-    (error) => {
-
-      console.error(error);
-
-      alert("Ahh, something went wrong. Please try again.");
-    }
   );
-};
+}
+
+export async function sendFeedbackEmail({
+  name,
+  email,
+  role,
+  company,
+  project,
+  rating,
+  message,
+  consentToFeature,
+}: SendFeedbackParams) {
+  const fullRole = company ? `${role} at ${company}` : role;
+  const stars = "★".repeat(Math.min(5, Math.max(1, rating))) + "☆".repeat(Math.max(0, 5 - rating));
+
+  const formattedMessage = [
+    `========================================`,
+    `⭐ NEW CLIENT TESTIMONIAL & FEEDBACK ⭐`,
+    `========================================`,
+    ``,
+    `Client Name : ${name}`,
+    `Client Email: ${email}`,
+    `Role / Org  : ${fullRole}`,
+    `Project     : ${project}`,
+    `Rating      : ${rating}/5 Stars (${stars})`,
+    `Consent     : ${consentToFeature ? "YES (Authorized to showcase on portfolio)" : "NO (Private feedback only)"}`,
+    ``,
+    `----------------------------------------`,
+    `CLIENT FEEDBACK / REVIEW:`,
+    `----------------------------------------`,
+    `${message}`,
+    ``,
+    `========================================`,
+  ].join("\n");
+
+  return emailjs.send(
+    EMAILJS_CONFIG.serviceId,
+    EMAILJS_CONFIG.templateId,
+    {
+      from_name: `${name} [Client Review]`,
+      to_name: EMAILJS_CONFIG.recipientName,
+      from_email: email,
+      to_email: EMAILJS_CONFIG.recipientEmail,
+      message: formattedMessage,
+    },
+    EMAILJS_CONFIG.publicKey
+  );
+}
