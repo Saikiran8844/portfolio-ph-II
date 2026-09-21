@@ -44,6 +44,7 @@ const Preloader: React.FC<PreloaderProps> = ({
     "प्रणाम",
     "Hallo",
     "आपका स्वागत है",
+    "మీకు స్వాగతం"
   ],
   backgroundColor = "#141516",
   textColor = "#ffffff",
@@ -64,25 +65,17 @@ const Preloader: React.FC<PreloaderProps> = ({
     if (isComplete) onComplete?.();
   }, [isComplete, onComplete]);
 
-  // The greeting shown is derived from real progress, so the languages march
-  // forward in lock-step with how much of the site has actually loaded.
   const clamped = Math.min(100, Math.max(0, progress));
   const index = Math.min(
     words.length - 1,
     Math.floor((clamped / 100) * words.length),
   );
 
-  // Curved-edge reveal for the slide-up (the classic elastic bottom) — desktop
-  // only. Morphing two full-screen SVG paths every frame is far too heavy for
-  // mobile GPUs, so phones get a clean straight edge instead.
-  const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${
-    dimension.height
-  } Q${dimension.width / 2} ${dimension.height + 300} 0 ${
-    dimension.height
-  } L0 0`;
-  const targetPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${
-    dimension.height
-  } Q${dimension.width / 2} ${dimension.height} 0 ${dimension.height} L0 0`;
+  const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${dimension.height
+    } Q${dimension.width / 2} ${dimension.height + 300} 0 ${dimension.height
+    } L0 0`;
+  const targetPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${dimension.height
+    } Q${dimension.width / 2} ${dimension.height} 0 ${dimension.height} L0 0`;
 
   const curve: Variants = {
     initial: {
@@ -95,12 +88,10 @@ const Preloader: React.FC<PreloaderProps> = ({
     },
   };
 
-  const lineInitial = `M0 ${dimension.height} Q${dimension.width / 2} ${
-    dimension.height + 300
-  } ${dimension.width} ${dimension.height}`;
-  const lineTarget = `M0 ${dimension.height} Q${dimension.width / 2} ${
-    dimension.height
-  } ${dimension.width} ${dimension.height}`;
+  const lineInitial = `M0 ${dimension.height} Q${dimension.width / 2} ${dimension.height + 300
+    } ${dimension.width} ${dimension.height}`;
+  const lineTarget = `M0 ${dimension.height} Q${dimension.width / 2} ${dimension.height
+    } ${dimension.width} ${dimension.height}`;
 
   const lineCurve: Variants = {
     initial: {
