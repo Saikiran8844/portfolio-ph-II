@@ -71,7 +71,7 @@ export function TimelineDemo() {
           </div>
 
           <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
-            Software Engineer — Distributed Systems &amp; Enterprise Cloud Architecture
+            Software Engineer II — Distributed Systems &amp; Enterprise Cloud Architecture
           </h3>
 
           <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-light">
@@ -207,15 +207,14 @@ export function TimelineDemo() {
                   initial={{ opacity: 0, x: -6 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3 }}
-                  className={`flex items-start gap-2 ${
-                    log.type === "query"
+                  className={`flex items-start gap-2 ${log.type === "query"
                       ? "text-cyan-400"
                       : log.type === "router"
-                      ? "text-purple-400"
-                      : log.type === "tool"
-                      ? "text-amber-400"
-                      : "text-emerald-400 font-semibold"
-                  }`}
+                        ? "text-purple-400"
+                        : log.type === "tool"
+                          ? "text-amber-400"
+                          : "text-emerald-400 font-semibold"
+                    }`}
                 >
                   <span className="text-muted-foreground/60 select-none">❯</span>
                   <span>{log.text}</span>

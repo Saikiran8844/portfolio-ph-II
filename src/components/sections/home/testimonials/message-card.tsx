@@ -2,137 +2,146 @@
 
 import React from "react";
 import { cn } from "@/lib/utils";
-import { Quote } from "lucide-react";
+import { Quote, Star, CheckCircle2, Sparkles } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 interface MessageCardProps {
   message: string;
   name: string;
-  isActive: boolean;
-  avatar: string;
   role: string;
+  company?: string;
+  project?: string;
+  rating?: number;
+  date?: string;
+  avatar: string;
+  isActive: boolean;
   vimeoId?: string;
 }
 
 export const MessageCard = ({
   message,
   name,
-  isActive,
-  avatar,
   role,
-  vimeoId,
+  company,
+  project,
+  rating = 5,
+  date,
+  avatar,
+  isActive,
 }: MessageCardProps) => {
+  const initials = name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+
   return (
-    // 1. OUTER WRAPPER: Handles layout, sizing, and opacity.
-    // Does NOT hide overflow, allowing corners to pop out.
     <div
       className={cn(
-        "embla__slide group relative flex flex-col transition-opacity duration-300 select-none",
+        "embla__slide group relative flex flex-col transition-all duration-300 select-none",
       )}
       style={{
-        flex: "0 0 calc(100vw - 80px)",
-        marginRight: "12px",
-        minWidth: "320px",
-        maxWidth: vimeoId ? "800px" : "400px",
+        flex: "0 0 calc(100vw - 48px)",
+        marginRight: "16px",
+        minWidth: "300px",
+        maxWidth: "520px",
       }}
     >
-      {/* 2. INNER CARD: Handles Background, Border, Glassmorphism, and content.
-          Has overflow-hidden to contain the "Shine" effect. */}
+      {/* Inner Card */}
       <figure
         className={cn(
-          "relative flex h-full overflow-hidden transition-all duration-300 items-center",
-          // Split layout: row on desktop, column on mobile
-          vimeoId ? "flex-col md:flex-row" : "flex-col",
-          // Glassmorphism & Border styles
-          "border border-border/40 bg-background/40 backdrop-blur-md",
-          "hover:border-primary/50 hover:bg-primary/5",
-          "shadow-sm hover:shadow-lg hover:shadow-primary/10",
-          isActive ? "opacity-100" : "bg-muted/10 opacity-60",
+          "relative flex flex-col h-full overflow-hidden rounded-2xl transition-all duration-300",
+          "border bg-card/60 backdrop-blur-xl p-6 sm:p-8",
+          isActive
+            ? "border-primary/50 shadow-xl shadow-primary/10 opacity-100 ring-1 ring-primary/20"
+            : "border-border/40 opacity-60 hover:opacity-85 hover:border-border/80",
         )}
       >
-        {/* --- Shine Effect (on figure so it covers full card) --- */}
-        <div className="pointer-events-none absolute inset-0 z-20 -translate-x-[100%] bg-gradient-to-r from-transparent via-white/5 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-[100%]" />
-        {/* --- Video Section (if vimeoId exists) --- */}
-        {vimeoId && (
-          <div className="relative w-full md:w-1/2 lg:w-2/5 overflow-hidden bg-black">
-            <div className="aspect-square relative">
-              <iframe
-                src={`https://player.vimeo.com/video/${vimeoId}?autoplay=1&loop=1&muted=1&background=1`}
-                allow="autoplay; fullscreen"
+        {/* Glow & Shine Effects */}
+        <div className="pointer-events-none absolute -top-24 -right-24 size-48 rounded-full bg-primary/15 blur-3xl opacity-50 group-hover:opacity-100 transition-opacity" />
+        <div className="pointer-events-none absolute inset-0 z-20 -translate-x-[100%] bg-gradient-to-r from-transparent via-primary/5 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-[100%]" />
+
+        {/* Top Meta Bar: Stars & Project Tag */}
+        <div className="relative z-10 flex items-center justify-between gap-2 mb-5">
+          {/* Star Rating */}
+          <div className="flex items-center gap-1">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star
+                key={i}
                 className={cn(
-                  "absolute aspect-auto inset-0 bg-black h-full w-full pointer-events-none transition-all duration-500",
-                  isActive ? "scale-100" : "scale-105 opacity-80",
+                  "size-4 transition-colors",
+                  i < rating
+                    ? "text-amber-400 fill-amber-400"
+                    : "text-muted-foreground/30",
                 )}
-                style={{ border: "none" }}
               />
-              {/* Video overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t md:bg-linear-to-r from-background/80 via-background/20 to-transparent" />
-            </div>
+            ))}
+            <span className="ml-1.5 text-xs font-mono font-semibold text-foreground/80">
+              {rating}.0
+            </span>
           </div>
-        )}
 
-        {/* --- Content Section --- */}
-        <div
-          className={cn(
-            "relative flex flex-col justify-between p-6",
-            vimeoId ? "w-full md:w-1/2 lg:w-3/5" : "w-full",
+          {/* Project Tag */}
+          {project && (
+            <span className="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-[11px] font-mono font-medium text-primary">
+              <Sparkles className="size-2.5" />
+              {project}
+            </span>
           )}
-        >
-          {/* --- Decorative Quote Icon --- */}
-          <Quote className="absolute -right-4 -top-4 size-24 rotate-12 text-muted/10 transition-colors duration-500 group-hover:text-primary/10" />
+        </div>
 
-          {/* --- Header: Avatar & Name --- */}
-          <div className="relative z-10 flex flex-row items-center gap-3">
-            <div className="relative size-10 overflow-hidden rounded-full border border-border/50">
-              <img
-                src={avatar}
-                alt={name}
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div className="flex flex-col">
-              <figcaption className="text-base font-semibold text-foreground">
-                {name}
-              </figcaption>
-              <p className="text-xs font-medium text-muted-foreground">
+        {/* Decorative Quote mark */}
+        <Quote className="absolute right-6 top-8 size-20 text-muted/10 pointer-events-none group-hover:text-primary/10 transition-colors duration-500" />
+
+        {/* Testimonial Body */}
+        <blockquote className="relative z-10 flex-1 text-sm sm:text-[15px] leading-relaxed text-muted-foreground group-hover:text-foreground/95 transition-colors duration-300">
+          &ldquo;{message}&rdquo;
+        </blockquote>
+
+        {/* Divider */}
+        <div className="relative z-10 my-5 h-px w-full bg-border/40" />
+
+        {/* Author Footer */}
+        <div className="relative z-10 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3 min-w-0">
+            <Avatar className="size-11 border border-border/80 shrink-0">
+              <AvatarImage src={avatar} alt={name} className="object-cover" />
+              <AvatarFallback className="bg-primary/20 text-primary font-bold text-xs">
+                {initials}
+              </AvatarFallback>
+            </Avatar>
+            <div className="flex flex-col min-w-0">
+              <div className="flex items-center gap-1.5">
+                <figcaption className="text-sm sm:text-base font-semibold text-foreground truncate">
+                  {name}
+                </figcaption>
+                <CheckCircle2 className="size-3.5 text-primary shrink-0" />
+              </div>
+              <p className="text-xs text-muted-foreground truncate">
                 {role}
+                {company && (
+                  <span className="text-foreground/70"> &middot; {company}</span>
+                )}
               </p>
             </div>
           </div>
 
-          {/* --- Body: Message --- */}
-          <blockquote className="relative z-10 mt-4 text-sm leading-relaxed text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
-            &quot;{message}&quot;
-          </blockquote>
+          {date && (
+            <span className="text-[11px] font-mono text-muted-foreground/60 shrink-0">
+              {date}
+            </span>
+          )}
         </div>
       </figure>
 
-      {/* 3. CORNERS: Placed outside the overflow-hidden figure, 
-          relative to the wrapper, with high z-index. */}
+      {/* Futuristic Corner Accents on Active Card */}
       {isActive && (
-        <div className="pointer-events-none absolute inset-0 z-50">
-          {/* Top Left Corner */}
-          <div className="absolute -left-1 -top-1 h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8">
-            <div className="absolute left-0 top-0 h-6 w-1 bg-primary sm:h-7 md:h-8" />
-            <div className="absolute left-0 top-0 h-2 w-6 bg-primary sm:h-2 sm:w-7 md:w-8" />
-          </div>
-
-          {/* Top Right Corner */}
-          <div className="absolute -right-1 -top-1 h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8">
-            <div className="absolute right-0 top-0 h-6 w-1 bg-primary sm:h-7 md:h-8" />
-            <div className="absolute right-0 top-0 h-2 w-6 bg-primary sm:h-2 sm:w-7 md:w-8" />
-          </div>
-
-          {/* Bottom Left Corner */}
-          <div className="absolute -bottom-1 -left-1 h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8">
-            <div className="absolute bottom-0 left-0 h-6 w-1 bg-primary sm:h-7 md:h-8" />
-            <div className="absolute bottom-0 left-0 h-2 w-6 bg-primary sm:h-2 sm:w-7 md:w-8" />
-          </div>
-
-          {/* Bottom Right Corner */}
-          <div className="absolute -bottom-1 -right-1 h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8">
-            <div className="absolute bottom-0 right-0 h-6 w-1 bg-primary sm:h-7 md:h-8" />
-            <div className="absolute bottom-0 right-0 h-2 w-6 bg-primary sm:h-2 sm:w-7 md:w-8" />
-          </div>
+        <div className="pointer-events-none absolute inset-0 z-30">
+          <div className="absolute -left-1 -top-1 size-4 border-l-2 border-t-2 border-primary rounded-tl-sm" />
+          <div className="absolute -right-1 -top-1 size-4 border-r-2 border-t-2 border-primary rounded-tr-sm" />
+          <div className="absolute -left-1 -bottom-1 size-4 border-l-2 border-b-2 border-primary rounded-bl-sm" />
+          <div className="absolute -right-1 -bottom-1 size-4 border-r-2 border-b-2 border-primary rounded-br-sm" />
         </div>
       )}
     </div>
