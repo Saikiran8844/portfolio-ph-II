@@ -3,7 +3,7 @@
 import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import PhraseAnimation from "@/components/common/phrase-reveal";
-import { TestimonialCarousel } from "./testimonials/testimonial-carousel";
+import { OrbitalConstellation } from "./testimonials/orbital-constellation";
 import { ClientFeedbackModal } from "./testimonials/client-feedback-modal";
 import { userData, UserData } from "@/data/user-data";
 import {
@@ -132,14 +132,17 @@ export const Testimonials = () => {
         </motion.div>
       </div>
 
-      {/* Testimonials Carousel */}
+      {/* Testimonials Orbital Constellation Graph */}
       <motion.div
         initial={{ opacity: 0, y: 35 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
         className="w-full max-w-7xl mx-auto px-4 sm:px-6"
       >
-        <TestimonialCarousel users={reviews} />
+        <OrbitalConstellation
+          reviews={reviews}
+          onOpenFeedback={() => setFeedbackModalOpen(true)}
+        />
       </motion.div>
 
       {/* Interactive Client Review / Feedback Modal */}

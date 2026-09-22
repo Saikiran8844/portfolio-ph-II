@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="nexus-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#ef4444" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="40" fill="#181102" />
+  <!-- Hexagon Cluster -->
+  <polygon points="100,45 140,68 140,114 100,137 60,114 60,68" stroke="url(#nexus-grad)" stroke-width="4" fill="none" opacity="0.6" />
+  <polygon points="100,65 125,79 125,108 100,122 75,108 75,79" fill="url(#nexus-grad)" opacity="0.85" />
+  <circle cx="100" cy="94" r="7" fill="#ffffff" />
+  <circle cx="100" cy="45" r="5" fill="#f59e0b" />
+  <circle cx="140" cy="114" r="5" fill="#ef4444" />
+  <circle cx="60" cy="114" r="5" fill="#f59e0b" />
+</svg>

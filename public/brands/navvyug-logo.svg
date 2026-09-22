@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="ny-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="40" fill="#091319" />
+  <circle cx="100" cy="100" r="70" stroke="url(#ny-grad)" stroke-width="6" stroke-dasharray="6 6" opacity="0.4" />
+  <path d="M60 85 L100 60 L140 85 L100 110 Z" fill="url(#ny-grad)" opacity="0.9" />
+  <path d="M80 115 L100 128 L120 115 V140 C120 152 80 152 80 140 Z" fill="url(#ny-grad)" opacity="0.75" />
+  <line x1="140" y1="85" x2="140" y2="135" stroke="#10b981" stroke-width="4" stroke-linecap="round" />
+  <circle cx="140" cy="138" r="4" fill="#06b6d4" />
+</svg>
