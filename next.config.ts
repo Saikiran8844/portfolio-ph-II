@@ -3,14 +3,12 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: [
-      "images.unsplash.com",
-      "framerusercontent.com",
-      "avatar.vercel.sh"
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "framerusercontent.com" },
+      { protocol: "https", hostname: "avatar.vercel.sh" },
+      { protocol: "https", hostname: "api.dicebear.com" },
     ],
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,

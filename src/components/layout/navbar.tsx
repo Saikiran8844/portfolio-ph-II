@@ -8,10 +8,11 @@ import { ThemeToggleButton } from "./theme-switcher";
 import { MotionToggle } from "@/components/ui/motion-toggle";
 
 const navItems = [
-  { name: "ABOUT", href: "#about", id: "about" },
+  { name: "EXPERIENCE", href: "#craft", id: "craft" },
   { name: "PROJECTS", href: "#works", id: "works" },
   { name: "SERVICES", href: "#services", id: "services" },
-  { name: "EXPERIENCE", href: "#craft", id: "craft" },
+  { name: "BLOGS", href: "#blogs", id: "blogs" },
+  { name: "REVIEWS", href: "#testimonials", id: "testimonials" },
   { name: "CONTACT", href: "#contact", id: "contact" },
 ];
 
@@ -26,7 +27,15 @@ export const Navbar: React.FC = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 30);
 
-      const sectionIds = ["about", "works", "services", "craft", "contact"];
+      const sectionIds = [
+        "about",
+        "craft",
+        "works",
+        "services",
+        "blogs",
+        "testimonials",
+        "contact",
+      ];
       const scrollPosition = window.scrollY + 220;
 
       for (let i = sectionIds.length - 1; i >= 0; i--) {
@@ -84,11 +93,10 @@ export const Navbar: React.FC = () => {
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 inset-x-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? "bg-background/85 backdrop-blur-xl border-b border-border/60 py-3.5 sm:py-4 shadow-sm"
-          : "bg-background/40 backdrop-blur-md border-b border-border/30 py-4 sm:py-5"
-      }`}
+      className={`fixed top-0 inset-x-0 z-50 w-full transition-all duration-300 ${scrolled
+        ? "bg-background/85 backdrop-blur-xl border-b border-border/60 py-3.5 sm:py-4 shadow-sm"
+        : "bg-background/40 backdrop-blur-md border-b border-border/30 py-4 sm:py-5"
+        }`}
     >
       <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 flex items-center justify-between">
         {/* ── Brand on Left (With Entrance Motion) ──────────── */}
@@ -140,11 +148,10 @@ export const Navbar: React.FC = () => {
                 }}
                 whileHover={{ y: -1.5 }}
                 onClick={(e) => handleNavClick(e, item.href, item.id)}
-                className={`text-[11px] lg:text-xs font-mono tracking-[0.22em] uppercase transition-colors cursor-pointer relative group py-1 ${
-                  isActive
-                    ? "text-foreground font-bold"
-                    : "text-foreground/70 hover:text-foreground"
-                }`}
+                className={`text-[11px] lg:text-xs font-mono tracking-[0.22em] uppercase transition-colors cursor-pointer relative group py-1 ${isActive
+                  ? "text-foreground font-bold"
+                  : "text-foreground/70 hover:text-foreground"
+                  }`}
               >
                 <span>{item.name}</span>
 

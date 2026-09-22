@@ -183,8 +183,11 @@ export default function CreativeFooter() {
             </h3>
             {[
               { label: "Overview", href: "#about" },
-              { label: "Selected Works", href: "#works" },
               { label: "Experience & Craft", href: "#craft" },
+              { label: "Selected Works", href: "#works" },
+              { label: "Services & Capabilities", href: "#services" },
+              { label: "Blogs & Technical Insights", href: "#blogs" },
+              { label: "Client Reviews & Feedback", href: "#testimonials" },
               { label: "Get In Touch", href: "#contact" },
             ].map((item, i) => (
               <motion.div
@@ -229,7 +232,7 @@ export default function CreativeFooter() {
                 GitHub
               </Link>
               <Link
-                href="https://linkedin.com/in/saikiran-nannapaneni"
+                href="https://linkedin.com/in/nannapaneni-saikiran"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative flex items-center gap-2 overflow-hidden rounded-full border border-border/50 bg-background/50 px-4 py-2 text-xs font-mono backdrop-blur-sm transition-all hover:border-primary/50 hover:bg-primary/10"

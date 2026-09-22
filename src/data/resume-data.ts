@@ -30,7 +30,7 @@ export const PERSONAL_DATA = {
   phone: "+91 75697 67364",
   socials: {
     github: "https://github.com/Saikiran8844",
-    linkedin: "https://linkedin.com/in/saikiran-nannapaneni",
+    linkedin: "https://linkedin.com/in/nannapaneni-saikiran",
     email: "mailto:sai8844n@yahoo.com",
     resume: "https://storage.googleapis.com/portfolio-public-files/Saikiran_Nannapaneni_Resume.pdf", // Set your resume URL here
   },

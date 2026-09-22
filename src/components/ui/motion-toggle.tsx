@@ -30,12 +30,12 @@ export const MotionToggle: React.FC<{ className?: string }> = ({ className = "" 
       {isReducedMotion ? (
         <>
           <EyeOff className="h-3.5 w-3.5 text-amber-500" />
-          <span className="text-muted-foreground group-hover:text-foreground">Reduced Motion</span>
+          <span className="text-muted-foreground group-hover:text-foreground">Reduced</span>
         </>
       ) : (
         <>
           <Eye className="h-3.5 w-3.5 text-emerald-400" />
-          <span className="text-muted-foreground group-hover:text-foreground">Cinematic Motion</span>
+          <span className="text-muted-foreground group-hover:text-foreground">Cinematic</span>
         </>
       )}
 

@@ -549,7 +549,7 @@ const AboutMe = () => {
           >
             Software Engineer, <br />
             <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-rose-400 bg-clip-text text-transparent">
-              Shopify Architect
+              Shopify Builder
             </span>{" "}
             <br />
             &amp; Creative Tech.

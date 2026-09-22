@@ -3,9 +3,11 @@
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import AboutMe from "@/components/sections/about/about-me";
+import { TimelineDemo } from "@/components/sections/home/timeline-demo";
 import { SelectedWorks } from "@/components/sections/works/selected-works";
 import ServicesSection from "@/components/sections/services/services-section";
-import { TimelineDemo } from "@/components/sections/home/timeline-demo";
+import { BlogsSection } from "@/components/sections/blogs/blogs-section";
+import { Testimonials } from "@/components/sections/home/testimonials";
 import CalBooking from "@/components/sections/home/cal-booking";
 import Preloader from "@/components/common/preloader";
 
@@ -24,25 +26,37 @@ export default function Home() {
         {isLoading && <Preloader onComplete={handleLoaded} />}
       </AnimatePresence>
 
-      {/* Hero & About Section with Interactive 3D WebGL Backdrop */}
+      {/* 1. About Me (Hero & Interactive 3D WebGL Backdrop) */}
       <section id="about" className="w-full scroll-mt-24">
         <AboutMe />
       </section>
 
-      {/* Selected Production & Client Works (CarrotKart, LegalAssistant, AI Interview Assistant, etc.) */}
-      <section id="works" className="w-full scroll-mt-24">
-        <SelectedWorks />
-      </section>
-
-      {/* Architectural Capabilities, Freelance & Creator Services */}
-      <ServicesSection />
-
-      {/* Professional Experience, Career & Tech Craft */}
+      {/* 2. Professional Experience & Tech Craft */}
       <section id="craft" className="w-full scroll-mt-24">
         <TimelineDemo />
       </section>
 
-      {/* Contact & Schedule Call */}
+      {/* 3. Selected Works & Projects (CarrotKart, LegalAssistant, AI Interview Assistant, etc.) */}
+      <section id="works" className="w-full scroll-mt-24">
+        <SelectedWorks />
+      </section>
+
+      {/* 4. Architectural Capabilities & Creator Services */}
+      <section id="services" className="w-full scroll-mt-24">
+        <ServicesSection />
+      </section>
+
+      {/* 5. Engineering Insights, Shopify Architecture & Growth Blogs */}
+      <section id="blogs" className="w-full scroll-mt-24">
+        <BlogsSection />
+      </section>
+
+      {/* 6. Wall of Trust, Client Reviews & Testimonials */}
+      <section id="testimonials" className="w-full scroll-mt-24">
+        <Testimonials />
+      </section>
+
+      {/* 7. Contact & Schedule Call */}
       <section id="contact" className="w-full scroll-mt-24">
         <CalBooking />
       </section>

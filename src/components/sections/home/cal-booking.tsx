@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 import CollabModal from "./collab-modal";
 import { sendEmail } from "@/lib/emailjs";
+import { toast } from "sonner";
 
 // ── Magnetic Button pulling towards cursor ────────────────────────────────────
 const MagneticBubble = ({
@@ -142,13 +143,18 @@ export const CalBooking = () => {
       });
 
       setBookedSuccess(true);
+      toast.success("Strategy call request sent!", {
+        description: `Scheduled for ${chosenDay} at ${selectedSlot}. Meeting details transmitted to Saikiran.`,
+      });
       setStatusMessage(
         "Strategy call request confirmed! Meeting details transmitted to Saikiran."
       );
-    } catch (err: unknown) {
+    } catch (err: any) {
       console.error("Booking error:", err);
-      setBookedSuccess(true);
-      setStatusMessage("Call request recorded! Email dispatched directly.");
+      toast.error("Booking transmission error", {
+        description: err?.text || err?.message || "Please reconnect your EmailJS service or try again.",
+      });
+      setStatusMessage(err?.text || "Transmission failed. Please reconnect EmailJS or try again.");
     } finally {
       setLoading(false);
     }

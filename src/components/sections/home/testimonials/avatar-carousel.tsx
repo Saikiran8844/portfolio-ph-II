@@ -1,16 +1,11 @@
-'use client";';
+"use client";
+
 import { motion } from "framer-motion";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
-interface User {
-  id: string;
-  name: string;
-  avatar: string;
-  message: string;
-}
+import { UserData } from "@/data/user-data";
 
 interface AvatarCarouselProps {
-  users: User[];
+  users: UserData[];
   activeIndex: number;
   onAvatarClick: (index: number) => void;
 }
@@ -21,53 +16,73 @@ export const AvatarCarousel = ({
   onAvatarClick,
 }: AvatarCarouselProps) => {
   return (
-    <div className="flex items-start justify-center gap-2 sm:gap-3 md:gap-4 px-2 pb-8 md:pb-6">
-      {users.map((user, index) => (
-        <button
-          key={user.id}
-          onClick={() => onAvatarClick(index)}
-          className="relative transition-all duration-300 focus:outline-none flex flex-col items-center gap-2 min-w-0"
-        >
-          <motion.div
-            animate={{
-              scale: activeIndex === index ? 1 : 0.9,
-            }}
-            transition={{
-              duration: 0.3,
-              ease: "easeOut",
-            }}
-            className="relative shrink-0"
-            style={{ willChange: "transform" }}
+    <div className="flex items-start justify-center gap-2.5 sm:gap-4 md:gap-6 px-2 pb-10 md:pb-8">
+      {users.map((user, index) => {
+        const isActive = activeIndex === index;
+        const initials = user.name
+          .split(" ")
+          .map((n) => n[0])
+          .join("")
+          .slice(0, 2)
+          .toUpperCase();
+
+        return (
+          <button
+            key={user.id}
+            type="button"
+            onClick={() => onAvatarClick(index)}
+            aria-label={`View testimonial by ${user.name}`}
+            className="relative transition-all duration-300 focus:outline-none flex flex-col items-center gap-2 min-w-0 group"
           >
-            {activeIndex === index && (
-              <motion.div
-                layoutId="avatar-border"
-                className="absolute -inset-1 rounded-full bg-primary"
-                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-              />
-            )}
-            <div className="relative">
-              <Avatar className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 border-2 border-background">
-                <AvatarImage src={user.avatar} alt={user.name} />
-                <AvatarFallback>
-                  {user.name.slice(0, 2).toUpperCase()}
-                </AvatarFallback>
-              </Avatar>
-            </div>
-          </motion.div>
-          {activeIndex === index && (
-            <motion.p
-              initial={{ opacity: 0, y: -5 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -5 }}
-              transition={{ duration: 0.2 }}
-              className="text-xs sm:text-sm font-medium text-foreground whitespace-nowrap absolute top-full mt-3 bg-muted px-2 py-1  border border-dashed"
+            <motion.div
+              animate={{
+                scale: isActive ? 1.08 : 0.88,
+                opacity: isActive ? 1 : 0.65,
+              }}
+              whileHover={{ scale: isActive ? 1.1 : 0.95, opacity: 0.9 }}
+              transition={{
+                duration: 0.25,
+                ease: "easeOut",
+              }}
+              className="relative shrink-0"
+              style={{ willChange: "transform" }}
             >
-              {user.name}
-            </motion.p>
-          )}
-        </button>
-      ))}
+              {isActive && (
+                <motion.div
+                  layoutId="avatar-glow"
+                  className="absolute -inset-1 rounded-full bg-linear-to-r from-primary/80 via-primary to-primary/80 blur-xs shadow-lg shadow-primary/30"
+                  transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
+                />
+              )}
+              <div className="relative">
+                <Avatar className="h-11 w-11 sm:h-13 sm:w-13 md:h-15 md:w-15 border-2 border-background/90 shadow-md">
+                  <AvatarImage
+                    src={user.avatar}
+                    alt={user.name}
+                    className="object-cover"
+                  />
+                  <AvatarFallback className="bg-primary/20 text-primary font-bold text-xs sm:text-sm">
+                    {initials}
+                  </AvatarFallback>
+                </Avatar>
+              </div>
+            </motion.div>
+
+            {isActive && (
+              <motion.div
+                initial={{ opacity: 0, y: -6, filter: "blur(4px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.2 }}
+                className="text-xs font-mono font-medium text-foreground whitespace-nowrap absolute top-full mt-3 rounded-full bg-background/90 backdrop-blur-md px-3 py-1 border border-primary/40 shadow-sm flex items-center gap-1.5"
+              >
+                <span className="size-1.5 rounded-full bg-primary animate-pulse" />
+                <span>{user.name}</span>
+              </motion.div>
+            )}
+          </button>
+        );
+      })}
     </div>
   );
 };

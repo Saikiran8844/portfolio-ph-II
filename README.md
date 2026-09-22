@@ -1,746 +1,278 @@
 <div align="center">
-  <div>
-    <img src="https://img.shields.io/badge/-React_JS-black?style=for-the-badge&logoColor=white&logo=react&color=61DAFB" alt="react.js" />
-    <img src="https://img.shields.io/badge/-Three_JS-black?style=for-the-badge&logoColor=white&logo=threedotjs&color=000000" alt="three.js" />
-    <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
-  </div>
 
-  <h3 align="center">A 3D Developer Portfolio</h3>
+# ⚡ Saikiran Nannapaneni
+### Senior Full-Stack Engineer & Shopify Architect
 
-   
+<p align="center">
+  <strong>Crafting immersive 60fps web applications, high-throughput microservices, and conversion-engineered Shopify storefronts.</strong>
+</p>
+
+<p align="center">
+  <a href="https://nannapaneni-saikiran.vercel.app/">
+    <img src="https://img.shields.io/badge/LIVE_DEMO-Visit_Portfolio_»-00f0ff?style=for-the-badge&logo=vercel&logoColor=black" alt="Live Demo" />
+  </a>
+  <a href="https://nannapaneni-saikiran.vercel.app/#contact">
+    <img src="https://img.shields.io/badge/CALENDAR-Book_Strategy_Call-ff007f?style=for-the-badge&logo=googlecalendar&logoColor=white" alt="Book Strategy Call" />
+  </a>
+</p>
+
+<!-- Technology Badges Strip -->
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js_16-Turbopack-000000?style=flat-square&logo=nextdotjs&logoColor=white" alt="Next.js 16" />
+  <img src="https://img.shields.io/badge/React_19-Concurrent-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React 19" />
+  <img src="https://img.shields.io/badge/TypeScript_5-Strict-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript 5" />
+  <img src="https://img.shields.io/badge/GSAP_3-GreenSock-88CE02?style=flat-square&logo=greensock&logoColor=white" alt="GSAP 3" />
+  <img src="https://img.shields.io/badge/Three.js-WebGL_Shaders-000000?style=flat-square&logo=threedotjs&logoColor=white" alt="Three.js" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS_v4-Modern-38B2AC?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS v4" />
+  <img src="https://img.shields.io/badge/Lenis_1.3-Smooth_Scroll-black?style=flat-square" alt="Lenis" />
+  <img src="https://img.shields.io/badge/EmailJS-Automated_Pipeline-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="EmailJS" />
+</p>
+
+---
+
+<!-- HERO BANNER PREVIEW -->
+<p align="center">
+  <img src="./public/screenshots/hero-banner.png" alt="Saikiran Nannapaneni Portfolio Hero Banner" width="100%" style="border-radius: 16px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 20px 50px rgba(0,0,0,0.6);" />
+</p>
+
 </div>
 
-## 📋 <a name="table">Table of Contents</a>
+---
 
-1. 🤖 [Introduction](#introduction)
-2. ⚙️ [Tech Stack](#tech-stack)
-3. 🔋 [Features](#features)
-4. 🤸 [Quick Start](#quick-start)
-5. 🕸️ [Snippets](#snippets)
-6. 🔗 [Links](#links)
-7. 🚀 [More](#more)
+## 🎬 Live Interactions & Dynamic Recordings
 
+### 🔮 Flashy Playbook Cards: Rotating Conic Laser Beam & GSAP 3D Tilt
+Aceternity & Raycast-inspired infinite hyper-speed border glow that accelerates dynamically on pointer hover, paired with velocity-damped 3D perspective tilt (`perspective: 1200px`) and angle-shifting holographic prismatic foil.
 
+<div align="center">
+  <table>
+    <tr>
+      <td width="100%" align="center">
+        <strong>📖 In-App Blueprint Reader Modal</strong><br/><br/>
+        <img src="./public/screenshots/playbook-reader.png" alt="Interactive Blueprint Reader" width="100%" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);" />
+      </td>
+    </tr>
+  </table>
+</div>
 
-## <a name="introduction">🤖 Introduction</a>
+---
 
-By developing this project, you will gain hands-on experience in crafting immersive web experiences, mastering 3D libraries, and implementing engaging animations. The combination of creativity and technical skills showcased in this project serves as an excellent learning opportunity for developers seeking to enhance their portfolio and captivate users with cutting-edge web design.
+## 🌟 Architecture & Key Showcase Sections
 
-## <a name="tech-stack">⚙️ Tech Stack</a>
+### 1. 📚 Technical Playbooks & Engineering Insights (`#blogs`)
+> *Field-tested architectural blueprints across modern software engineering, custom Shopify storefronts, and e-commerce growth tech.*
 
-- React.js
-- Three.js
-- React Three Fiber
-- React Three Drei
-- Email JS
-- Vite
-- Tailwind CSS
+<p align="center">
+  <img src="./public/screenshots/playbooks-showcase.png" alt="Technical Playbooks & Blogs Showcase" width="100%" style="border-radius: 14px; border: 1px solid rgba(255,255,255,0.12);" />
+</p>
 
-## <a name="features">🔋 Features</a>
+* **Rotating Conic Laser Border Beams**: Dynamic infinite conic-gradient borders that accelerate to hyper-speed on hover.
+* **Holographic Foil Reflector**: Cursor-driven iridescent reflections that shift across emerald, cyan, and magenta based on viewing angle.
+* **Kinetic Typography Decryption**: Cyber matrix character decryption effect on title hover using randomized glyph staggers.
+* **In-App Blueprint Deep Dives**: Window-friendly interactive modal with copyable code snippets, strategic takeaways, and performance metric callouts.
 
-👉 **Customizable 3D Hero Section**: Includes a 3D desktop model easily customizable to suit specific needs.
+---
 
-👉 **Interactive Experience and Work Sections**: Utilizes animations powered by framer motion for engaging user experience.
+### 2. ⭐ Wall of Trust & Client Reviews with Feedback Pipeline (`#testimonials`)
+> *Authentic testimonials from founders, product managers, and engineering leaders with automated feedback dispatch.*
 
-👉 **3D Skills Section**: Showcases skills using 3D geometries through three.js and React Three fiber
+<div align="center">
+  <table>
+    <tr>
+      <td width="55%" align="center">
+        <strong>💬 Client Reviews Carousel & Ratings</strong><br/><br/>
+        <img src="./public/screenshots/testimonials-reviews.png" alt="Wall of Trust & Reviews Carousel" width="100%" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);" />
+      </td>
+      <td width="45%" align="center">
+        <strong>⭐ Interactive Feedback Modal</strong><br/><br/>
+        <img src="./public/screenshots/feedback-modal.png" alt="Client Feedback Form with 5 Stars" width="100%" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);" />
+      </td>
+    </tr>
+  </table>
+</div>
 
-👉 **Animated Projects and Testimonials**: Features animated sections using framer motion for projects and client testimonials.
+* **Embla Carousel**: Responsive client review carousel with active glow indicators and 5-star rating badges.
+* **Direct Feedback Modal**: Allows clients and collaborators to select 1–5 stars, choose their project, write a testimonial, and automatically dispatch it directly to Saikiran's inbox via EmailJS.
+* **Optimistic Live Feed**: Newly submitted reviews are instantaneously injected into the local state so the client sees their feedback immediately.
+* **Sonner Toast Alerts**: Modern dark-mode notifications confirm successful email delivery without intrusive page reloads.
 
-👉 **Contact Section with 3D Earth Model**:Integrates a 3D earth model with email functionality powered by emailjs.
+---
 
-👉 **3D Stars**: Generate stars progressively at random positions using Three.js for background display.
+### 3. 💼 Selected Works & Production Case Studies (`#works`)
+> *Production platforms serving thousands of daily active users and high-conversion e-commerce storefronts.*
 
-👉 **Consistent Animations**: Implements cohesive animations throughout the website using framer motion.
+<p align="center">
+  <img src="./public/screenshots/projects-showcase.png" alt="Selected Works Showcase" width="100%" style="border-radius: 14px; border: 1px solid rgba(255,255,255,0.12);" />
+</p>
 
-👉 **Responsive Design**: Ensures optimal display and functionality across all devices.
+| Project | Category | Architectural Highlights | Live Production |
+|---|---|---|---|
+| **CarrotKart.live** | E-Commerce | Custom Liquid theme, sub-second Core Web Vitals, 38% conversion surge | [carrotkart.live ↗](https://carrotkart.live) |
+| **LegalAssistant AI** | Full-Stack AI | Supabase Postgres RLS, automated DOCX/PDF templating, real-time analytics | [justra.vercel.app ↗](https://justra.vercel.app) |
+| **AI Interview Assistant** | Generative AI | Low-latency LLM streaming via SSE, speech synthesis, qualitative rubrics | [ai-interview.vercel.app ↗](https://ai-interview-assistant-stage.vercel.app) |
+| **NavvYug LMS** | Systems / Web | Scalable Learning Management Platform for students and educators | [navvyug.vercel.app ↗](https://navvyug.vercel.app) |
 
-and many more, including code architecture and reusability 
+---
 
-## <a name="quick-start">🤸 Quick Start</a>
+### 4. 🛠️ Experience, Craft & Specialized Services (`#craft` & `#services`)
+> *Full-stack engineering leadership and high-impact e-commerce storefront development.*
 
-Follow these steps to set up the project locally on your machine.
+<div align="center">
+  <table>
+    <tr>
+      <td width="50%" align="center">
+        <strong>⚡ Experience & Engineering Craft</strong><br/><br/>
+        <img src="./public/screenshots/experience-craft.png" alt="Experience and Engineering Craft" width="100%" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);" />
+      </td>
+      <td width="50%" align="center">
+        <strong>🚀 Capabilities & Tailored Services</strong><br/><br/>
+        <img src="./public/screenshots/services-grid.png" alt="Services and Capabilities Grid" width="100%" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);" />
+      </td>
+    </tr>
+  </table>
+</div>
 
-**Prerequisites**
+---
 
-Make sure you have the following installed on your machine:
+## 🧭 Visual Navigation Flowchart
 
-- [Git](https://git-scm.com/)
-- [Node.js](https://nodejs.org/en)
-- [npm](https://www.npmjs.com/) (Node Package Manager)
+The portfolio follows a deliberate storytelling narrative guiding recruiters, founders, and prospective clients from engineering philosophy to project case studies, client reviews, and direct booking:
 
-**Cloning the Repository**
+```mermaid
+flowchart TD
+    A["👤 1. Hero & About Me (#about)"] --> B["⚡ 2. Experience & Craft (#craft)"]
+    B --> C["💼 3. Selected Works & Case Studies (#works)"]
+    C --> D["🚀 4. Capabilities & Services (#services)"]
+    D --> E["📚 5. Technical Playbooks & Blogs (#blogs)"]
+    E --> F["⭐ 6. Wall of Trust & Client Reviews (#testimonials)"]
+    F --> G["📅 7. Strategy Call & Direct Inbox (#contact)"]
 
-```bash
-git clone git@github.com:adrianhajdin/project_3D_developer_portfolio.git
-cd project_3D_developer_portfolio
+    style A fill:#0d1117,stroke:#00f0ff,stroke-width:2px,color:#fff
+    style B fill:#0d1117,stroke:#3b82f6,stroke-width:2px,color:#fff
+    style C fill:#0d1117,stroke:#8b5cf6,stroke-width:2px,color:#fff
+    style D fill:#0d1117,stroke:#ec4899,stroke-width:2px,color:#fff
+    style E fill:#0d1117,stroke:#10b981,stroke-width:2px,color:#fff
+    style F fill:#0d1117,stroke:#f59e0b,stroke-width:2px,color:#fff
+    style G fill:#0d1117,stroke:#ef4444,stroke-width:2px,color:#fff
 ```
 
-**Installation**
+---
 
-Install the project dependencies using npm:
+## 🛠️ Complete Technology Stack
+
+| Layer | Tools & Libraries | Purpose & Architectural Justification |
+|---|---|---|
+| **Core Framework** | **Next.js 16** (Turbopack, App Router) | Sub-second cold compilation, streaming SSR, and automated code-splitting |
+| **UI Library** | **React 19** (Concurrent Mode) | Concurrent rendering primitives and zero-jank UI updates |
+| **Type Safety** | **TypeScript 5** | Strict type contracts across all client data schemas and components |
+| **Styling & System** | **Tailwind CSS v4** | Modern CSS theme tokens, container queries, and glassmorphism styling |
+| **Kinetic Motion** | **GSAP 3** (`@gsap/react`), **Framer Motion** | 3D velocity tilt physics, matrix decryption, and laser border sweeps |
+| **WebGL & Shaders** | **Three.js**, **OGL** | Interactive dynamic 3D wireframe mesh hero backdrop |
+| **Hardware Scroll** | **Lenis 1.3** | Smooth inertia-based scrolling scrub synchronized with GSAP ScrollTrigger |
+| **Email Pipelines** | **@emailjs/browser** | Client review dispatch and strategy call inbox notifications |
+| **Alerts & Toasts** | **Sonner 2.0** | Accessible, non-intrusive dark mode notifications |
+
+---
+
+## 📂 Project Architecture
+
+```plaintext
+c:/Projects/My-Portfolio/
+├── public/
+│   └── screenshots/                   # High-res showcases & animated interaction GIF
+│       ├── hero-banner.png            # Hero 3D interactive section
+│       ├── playbook-card-animation.gif# Conic laser border beam & 3D tilt hover GIF
+│       ├── playbooks-showcase.png     # Technical playbooks section preview
+│       ├── playbook-reader.png        # In-app Blueprint reader modal
+│       ├── projects-showcase.png      # Selected works & case studies
+│       ├── testimonials-reviews.png   # Wall of Trust carousel
+│       ├── feedback-modal.png         # Client rating & review popup
+│       ├── experience-craft.png       # Experience & Craft timeline
+│       └── services-grid.png          # Capabilities & services grid
+├── src/
+│   ├── app/                           # Next.js 16 App Router pages & metadata
+│   ├── components/
+│   │   ├── layout/                    # Navbar & Footer with synchronized routing
+│   │   ├── sections/
+│   │   │   ├── blogs/                 # GSAP laser cards & Blueprint deep dive reader
+│   │   │   ├── home/testimonials/     # Client Feedback Modal & Reviews carousel
+│   │   │   ├── home/works/            # Production case studies & metric badges
+│   │   │   └── home/contact/          # Cal.com booking & EmailJS form
+│   │   └── ui/                        # Radix UI primitives & design tokens
+│   ├── data/                          # Data models for Playbooks, Reviews, & Projects
+│   └── lib/                           # EmailJS dispatcher & utility helpers
+```
+
+---
+
+## ⚡ Quick Start & Local Setup
 
 ```bash
+# 1. Clone the repository
+git clone https://github.com/Saikiran8844/portfolio-ph-II.git
+cd portfolio-ph-II
+
+# 2. Install dependencies
 npm install
-```
 
-**Set Up Environment Variables**
-
-Create a new file named `.env` in the root of your project and add the following content:
-
-```env
-REACT_APP_EMAILJS_USERID=your_emailjs_user_id
-REACT_APP_EMAILJS_TEMPLATEID=your_emailjs_template_id
-REACT_APP_EMAILJS_RECEIVERID=your_emailjs_receiver_id
-```
-
-Replace the placeholder values with your actual EmailJS credentials. You can obtain these credentials by signing up on the [EmailJS website](https://www.emailjs.com/).
-
-**Running the Project**
-
-```bash
+# 3. Start local development server with Turbopack
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser to view the project.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## <a name="snippets">🕸️ Snippets</a>
+---
 
-<details>
-<summary><code>constants.js</code></summary>
+## ⚙️ Environment Variables
 
-```javascript
-import {
-  backend,
-  devOps,
-  AI,
-  web,
-  javascript,
-  typescript,
-  html,
-  css,
-  reactjs,
-  redux,
-  tailwind,
-  nodejs,
-  kubernates,
-  mongodb,
-  git,
-  java,
-  mysql,
-  springboot,
-  figma,
-  docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
-  carrent,
-  jobit,
-  tripguide,
-  threejs,
-  tcs,
-  thales,
-  intelligence,
-  kodnest,
-  sun,
-  payment,
-  boc,
-  intelligence2,
-  rental,
-  project2
-} from "../assets";
+Create a `.env.local` file in the root directory:
 
-export const navLinks = [
-  {
-    id: "about",
-    title: "About",
-  },
-  {
-    id: "work",
-    title: "Work",
-  },
-  {
-    id: "contact",
-    title: "Contact",
-  },
-];
+```env
+# EmailJS Pipeline (Direct Client Review Dispatch & Bookings)
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
 
-const services = [
-  {
-    title: "Web Developer",
-    icon: web,
-  },
-  {
-    title: "Backend Developer",
-    icon: backend,
-  },
-  {
-    title: "Cloud & DevOps Solutions",
-    icon: devOps,
-  },
-  {
-    title: "Edge Computing & IOT",
-    icon: AI,
-  },
-];
-
-const technologies = [
-  {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "CSS 3",
-    icon: css,
-  },
-  {
-    name: "JavaScript",
-    icon: javascript,
-  },
-  {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Kubernates",
-    icon: kubernates,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MySQL",
-    icon: mysql,
-  },
-  {
-    name: "Java",
-    icon: java,
-  },
-  {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "Spring Boot",
-    icon: springboot,
-  },
-  {
-    name: "docker",
-    icon: docker,
-  },
-];
-
-const experiences = [
-  {
-    title: "Software Engineer II",
-    company_name: "Thales India",
-    icon: thales,
-    iconBg: "#f4f4f4ff",
-    date: "April 2023 -  Present",
-    points: [
-      "Designed, developed, and maintained web applications with React.js, Next.js, and Tailwind CSS, ensuring responsive design and seamless user experience.",
-      "Built and optimized scalable backend services using Express.js, integrating with MySQL and MongoDB to guarantee data security, consistency, and high performance.",
-      "Collaborated closely with cross-functional teams including designers, product managers, and engineers to deliver business-critical features.",
-      "Conducted code reviews, provided mentorship, and shared best practices to maintain coding standards and improve team efficiency.",
-      "Ensured application performance, reliability, and maintainability by following secure coding principles and performing rigorous testing.",
-      "Contributed to the full software development lifecycle (SDLC) including design, development, testing, deployment, and support.",
-      "Actively engaged in agile practices (Scrum, sprint planning, retrospectives) to deliver incremental value and meet tight deadlines."
-    ],
-  },
-  {
-    title: "Full Stack Java Development Trainee",
-    company_name: "KodNest",
-    icon: kodnest,
-    iconBg: "#ffffffff",
-    date: "Dec 2022 - May 2023",
-    points: [
-      "Completed an intensive 4-month training program in Full Stack Development with Java and Python.",
-      "Gained hands-on experience in backend development with Spring Boot, REST APIs, and database integration.",
-      "Built front-end applications using ReactJS and Angular with a focus on responsive design.",
-      "Practiced Agile methodologies, coding standards, and version control using Git & GitHub.",
-      "Developed mini-projects integrating frontend, backend, and databases to strengthen real-world problem-solving skills."
-    ],
-  },
-];
-
-const testimonials = [
- 
-];
-
-const projects = [
-  {
-    name: "BackOffice Connector Chatbot",
-    description:
-      // "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
-      "This is the backend service for a Personal Assistant/Chatbot application. It provides REST APIs for user management, conversation handling, and subscription services.",
-    tags: [
-      {
-        name: "Java",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "MySQL",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "Sprinboot",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Swagger UI",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: boc,
-    source_code_link: "https://github.com/Saikiran8844/back-office-connector-chatbot",
-  },
-  {
-    name: "Letter Editor - Using OAuth ",
-    description:
-      "Buit a letter editor that utilizes OAuth for secure login, MySQL for user and document data storage, and Google Drive integration to allow users to edit and save documents directly to their personal cloud storage.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "tailwind css",
-        color: "green-text-gradient",
-      },
-      {
-        name: "mysql",
-        color: "orange-text-gradient",
-      },
-      {
-        name: "node js",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "OAuth 2.0",
-        color: "green-text-gradient",
-      },
-      {
-        name: "jwt",
-        color: "blue-text-gradient",
-      },
-    ],
-    image: project2,
-    source_code_link: "https://o-auth2-0-nine.vercel.app/",
-  },
-  {
-    name: "MediAssist.ai",
-    description: "Built a production-ready document understanding pipeline using Hugging Face Document QA + NER + Text Generation to analyze PDFs/images of medical reports, summarize findings in lay language, and cross-check medications via OpenFDA. Deployed FastAPI (Python) and Next.js on free-tier cloud with S3-compatible storage, caching, and basic observability. Delivered privacy-aware design (JWT, signed URLs, redaction) and a clean, card-based UX.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "tailwind css",
-        color: "green-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "orange-text-gradient",
-      },
-      {
-        name: "python fast api",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "vite",
-        color: "green-text-gradient",
-      },
-      {
-        name: "jwt",
-        color: "blue-text-gradient",
-      },
-       ],
-    image: project2,
-    source_code_link: "https://github.com/Saikiran8844/MedAssist.ai",
-  }
-];
-
-export { services, technologies, experiences, testimonials, projects };
-```
-</details>
-
-<details>
-<summary><code>index.css</code></summary>
-
-```css
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-  scroll-behavior: smooth;
-  color-scheme: dark;
-}
-
-.hash-span {
-  margin-top: -100px;
-  padding-bottom: 100px;
-  display: block;
-}
-
-.black-gradient {
-  background: #000000; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #434343,
-    #000000
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #434343,
-    #000000
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.violet-gradient {
-  background: #804dee;
-  background: linear-gradient(-90deg, #804dee 0%, rgba(60, 51, 80, 0) 100%);
-  background: -webkit-linear-gradient(
-    -90deg,
-    #804dee 0%,
-    rgba(60, 51, 80, 0) 100%
-  );
-}
-
-.green-pink-gradient {
-  background: "#00cea8";
-  background: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
-  background: -webkit-linear-gradient(-90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
-}
-
-.orange-text-gradient {
-  background: #f12711; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #f12711,
-    #f5af19
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #f12711,
-    #f5af19
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.green-text-gradient {
-  background: #11998e; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #11998e,
-    #38ef7d
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #11998e,
-    #38ef7d
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.blue-text-gradient {
-  /* background: -webkit-linear-gradient(#eee, #333); */
-  background: #56ccf2; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #2f80ed,
-    #56ccf2
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #2f80ed,
-    #56ccf2
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.pink-text-gradient {
-  background: #ec008c; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #ec008c,
-    #fc6767
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #ec008c,
-    #fc6767
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* canvas- styles */
-.canvas-loader {
-  font-size: 10px;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  position: relative;
-  text-indent: -9999em;
-  animation: mulShdSpin 1.1s infinite ease;
-  transform: translateZ(0);
-}
-
-@keyframes mulShdSpin {
-  0%,
-  100% {
-    box-shadow: 0em -2.6em 0em 0em #ffffff,
-      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
-      2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
-      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
-      0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
-      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
-      -2.6em 0em 0 0em rgba(255, 255, 255, 0.5),
-      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
-  }
-  12.5% {
-    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7),
-      1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
-      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
-      0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
-      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
-      -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
-      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
-  }
-  25% {
-    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5),
-      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff,
-      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
-      0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
-      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
-      -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
-      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
-  }
-  37.5% {
-    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
-      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5),
-      2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #ffffff,
-      0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
-      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
-      -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
-      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
-  }
-  50% {
-    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
-      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
-      2.5em 0em 0 0em rgba(255, 255, 255, 0.5),
-      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #ffffff,
-      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
-      -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
-      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
-  }
-  62.5% {
-    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
-      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
-      2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
-      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5),
-      0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff,
-      -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
-      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
-  }
-  75% {
-    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
-      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
-      2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
-      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
-      0em 2.5em 0 0em rgba(255, 255, 255, 0.5),
-      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #ffffff,
-      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
-  }
-  87.5% {
-    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
-      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
-      2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
-      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
-      0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
-      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5),
-      -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
-  }
-}
-```
-</details>
-
-<details>
-<summary><code>Motion.js</code></summary>
-
-```javascript
-export const textVariant = (delay) => {
-  return {
-    hidden: {
-      y: -50,
-      opacity: 0,
-    },
-    show: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        duration: 1.25,
-        delay: delay,
-      },
-    },
-  };
-};
-
-export const fadeIn = (direction, type, delay, duration) => {
-  return {
-    hidden: {
-      x: direction === "left" ? 100 : direction === "right" ? -100 : 0,
-      y: direction === "up" ? 100 : direction === "down" ? -100 : 0,
-      opacity: 0,
-    },
-    show: {
-      x: 0,
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: type,
-        delay: delay,
-        duration: duration,
-        ease: "easeOut",
-      },
-    },
-  };
-};
-
-export const zoomIn = (delay, duration) => {
-  return {
-    hidden: {
-      scale: 0,
-      opacity: 0,
-    },
-    show: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        type: "tween",
-        delay: delay,
-        duration: duration,
-        ease: "easeOut",
-      },
-    },
-  };
-};
-
-export const slideIn = (direction, type, delay, duration) => {
-  return {
-    hidden: {
-      x: direction === "left" ? "-100%" : direction === "right" ? "100%" : 0,
-      y: direction === "up" ? "100%" : direction === "down" ? "100%" : 0,
-    },
-    show: {
-      x: 0,
-      y: 0,
-      transition: {
-        type: type,
-        delay: delay,
-        duration: duration,
-        ease: "easeOut",
-      },
-    },
-  };
-};
-
-export const staggerContainer = (staggerChildren, delayChildren) => {
-  return {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: staggerChildren,
-        delayChildren: delayChildren || 0,
-      },
-    },
-  };
-};
-```
-</details>
-
-<details>
-<summary><code>styles.js</code></summary>
-
-```javascript
-const styles = {
-  paddingX: "sm:px-16 px-6",
-  paddingY: "sm:py-16 py-6",
-  padding: "sm:px-16 px-6 sm:py-16 py-10",
-
-  heroHeadText:
-    "font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2",
-  heroSubText:
-    "text-[#dfd9ff] font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px]",
-
-  sectionHeadText:
-    "text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]",
-  sectionSubText:
-    "sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider",
-};
-
-export { styles };
+# Site Canonical URL
+NEXT_PUBLIC_SITE_URL=https://nannapaneni-saikiran.vercel.app
 ```
 
-</details>
+---
 
-<details>
-<summary><code>tailwind.config.cjs</code></summary>
+## 📦 Build & Validation Commands
 
-```javascript
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./src/**/*.{js,jsx}"],
-  mode: "jit",
-  theme: {
-    extend: {
-      colors: {
-        primary: "#050816",
-        secondary: "#aaa6c3",
-        tertiary: "#151030",
-        "black-100": "#100d25",
-        "black-200": "#090325",
-        "white-100": "#f3f3f3",
-      },
-      boxShadow: {
-        card: "0px 35px 120px -15px #211e35",
-      },
-      screens: {
-        xs: "450px",
-      },
-      backgroundImage: {
-        "hero-pattern": "url('/src/assets/herobg.png')",
-      },
-    },
-  },
-  plugins: [],
-};
+```bash
+# Strict TypeScript compilation check (0 errors required)
+npx tsc --noEmit
+
+# Production Turbopack bundle build
+npm run build
+
+# Start production server
+npm start
 ```
 
-</details>
+---
 
+## 📬 Connect & Collaborate
 
+<p align="left">
+  <a href="https://github.com/Saikiran8844">
+    <img src="https://img.shields.io/badge/GitHub-Saikiran8844-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+  </a>
+  <a href="https://linkedin.com/in/nannapaneni-saikiran">
+    <img src="https://img.shields.io/badge/LinkedIn-Saikiran_Nannapaneni-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+  <a href="mailto:sai8844n@gmail.com">
+    <img src="https://img.shields.io/badge/Email-sai8844n%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+  </a>
+  <a href="https://nannapaneni-saikiran.vercel.app/#contact">
+    <img src="https://img.shields.io/badge/Calendar-Schedule_Call-006BFF?style=for-the-badge&logo=googlecalendar&logoColor=white" alt="Book Strategy Call" />
+  </a>
+</p>
 
+---
 
-#
+<div align="center">
+  <sub>© 2026 <strong>Saikiran Nannapaneni</strong>. Built with precision, Next.js 16, GSAP 3, and Tailwind CSS.</sub>
+</div>
