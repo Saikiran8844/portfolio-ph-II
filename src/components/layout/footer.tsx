@@ -79,6 +79,24 @@ const MagneticButton = ({ children }: { children: React.ReactNode }) => {
 export default function CreativeFooter() {
   const currentYear = new Date().getFullYear();
   const [isCollabOpen, setIsCollabOpen] = useState(false);
+  const [istTime, setIstTime] = useState("");
+
+  useEffect(() => {
+    const updateTime = () => {
+      setIstTime(
+        new Intl.DateTimeFormat("en-IN", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: true,
+          timeZone: "Asia/Kolkata",
+        }).format(new Date())
+      );
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleLetsTalkClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -113,35 +131,9 @@ export default function CreativeFooter() {
 
       {/* --- CONTENT CONTAINER --- */}
       <div className="container mx-auto px-6">
-        {/* 1. CTA SECTION */}
-        <div className="mb-24 flex flex-col items-start justify-between gap-10 md:flex-row md:items-end">
-          <div className="max-w-2xl overflow-hidden">
-            <motion.h2
-              initial={{ opacity: 0, y: 60, clipPath: "inset(0 0 100% 0)" }}
-              whileInView={{ opacity: 1, y: 0, clipPath: "inset(0 0 0% 0)" }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-6xl font-bold tracking-tighter md:text-8xl lg:text-9xl"
-            >
-              Let&apos;s make <br />
-              <span className=" text-primary/80">waves.</span>
-            </motion.h2>
-          </div>
 
-          <MagneticButton>
-            <button
-              onClick={handleLetsTalkClick}
-              className="group relative cursor-pointer flex h-32 w-32 items-center justify-center rounded-full bg-foreground text-background transition-colors hover:bg-primary md:h-40 md:w-40"
-            >
-              <span className="absolute z-10 text-lg font-medium group-hover:opacity-0 transition-opacity duration-300">
-                Let&apos;s Talk
-              </span>
-              <FaArrowRight className="absolute z-10 size-8 -translate-x-10 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 text-white" />
-            </button>
-          </MagneticButton>
-        </div>
 
-        {/* 2. GRID SECTION (Links & Branding) */}
+        {/* 1. GRID SECTION (Links & Branding) */}
         <div className="grid grid-cols-1 gap-12 border-t border-border/40 pt-12 md:grid-cols-12 md:gap-6">
           {/* Brand Column */}
           <motion.div
@@ -257,8 +249,19 @@ export default function CreativeFooter() {
           className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border/40 py-6 text-xs font-mono text-muted-foreground md:flex-row"
         >
           <p>© {currentYear} Saikiran Nannapaneni. All rights reserved.</p>
+          <div className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-border/70 bg-muted/30 backdrop-blur-xs font-mono text-xs shadow-inner">
+            <span className="relative flex size-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
+            </span>
+            <span className="text-muted-foreground text-[11px] tracking-wider uppercase">NEW DELHI, IN</span>
+            <span className="text-border/80">·</span>
+            <span className="text-foreground font-semibold tracking-wide">
+              {istTime ? `${istTime} IST` : "LIVE IST"}
+            </span>
+          </div>
           <p className="text-[11px] text-muted-foreground/60">
-            Engineered with Next.js 15, React 19, Three.js, WebGL &amp; GSAP 3.
+            Engineered with Next.js 16, React 19, Three.js, WebGL &amp; GSAP 3.
           </p>
         </motion.div>
         {/* Collab Modal with EmailJS */}

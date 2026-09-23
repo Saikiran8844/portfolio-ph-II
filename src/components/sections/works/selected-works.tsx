@@ -31,6 +31,7 @@ import {
   LayoutGrid,
   Layers2,
   Play,
+  Terminal,
 } from "lucide-react";
 
 // ── Motion Graphics SVG Perimeter Border Beam ─────────────────────────────────
@@ -88,6 +89,99 @@ const BorderBeam = ({
 // ── Motion Graphic Hero Stage for each project ────────────────────────────────
 const MotionGraphicHero = ({ work }: { work: PersonalWork }) => {
   const id = work.id;
+
+  // 0. Vercel Extension — VS Code Control Center & Observability Hub
+  if (id === "vercel-extension" || id.toLowerCase().includes("vercel")) {
+    return (
+      <div className="relative w-full h-44 rounded-2xl bg-gradient-to-b from-blue-950/40 via-black/60 to-black/90 border border-blue-500/25 overflow-hidden flex items-center justify-between p-4 my-4 shadow-inner">
+        {/* Animated Cyber Grid Floor */}
+        <div
+          className="absolute inset-0 opacity-20 pointer-events-none"
+          style={{
+            backgroundImage: `linear-gradient(to right, rgba(0, 112, 243, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 112, 243, 0.15) 1px, transparent 1px)`,
+            backgroundSize: "20px 20px",
+          }}
+        />
+
+        {/* Laser Sweep Scanline */}
+        <motion.div
+          animate={{ y: ["-100%", "300%"] }}
+          transition={{ duration: 3.2, repeat: Infinity, ease: "linear", delay: 0.2 }}
+          className="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-sky-400 to-transparent shadow-[0_0_12px_#0070f3] pointer-events-none opacity-80"
+        />
+
+        {/* Left: VS Code Telemetry & Deployment Stream */}
+        <div className="relative z-10 flex flex-col justify-center space-y-1.5">
+          <div className="p-2.5 rounded-xl bg-black/70 border border-blue-500/30 shadow-lg backdrop-blur-md">
+            <div className="flex items-center gap-1.5 mb-1.5">
+              <Terminal className="size-3.5 text-sky-400" />
+              <span className="text-[10px] font-mono font-bold text-sky-300 tracking-wider">
+                VS CODE CONSOLE
+              </span>
+            </div>
+            <div className="space-y-1 font-mono text-[10px]">
+              <div className="flex items-center gap-2">
+                <span className="text-muted-foreground">DEPLOY:</span>
+                <span className="text-emerald-400 font-bold">READY (480ms)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-muted-foreground">ENV SYNC:</span>
+                <span className="text-sky-300">.env.local 100%</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-muted-foreground">RUNTIME:</span>
+                <span className="text-amber-400">EDGE LOGS STREAM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Center: 3D Glowing Vercel Triangle */}
+        <div className="relative z-10 flex flex-col items-center justify-center">
+          <div className="relative w-16 h-16 flex items-center justify-center">
+            {/* Outer Rotating Radar Ring */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 rounded-full border border-dashed border-sky-400/50"
+            />
+            {/* Inner Counter-Rotating Hexagon */}
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-1.5 rounded-full border border-blue-500/30"
+            />
+            <motion.div
+              animate={{ scale: [0.92, 1.08, 0.92] }}
+              transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+              className="p-3 rounded-2xl bg-blue-500/20 border border-sky-400 text-white shadow-[0_0_24px_rgba(0,112,243,0.5)] backdrop-blur-md flex items-center justify-center"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="size-6 fill-current text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">
+                <path fillRule="evenodd" clipRule="evenodd" d="M12 3L22 21H2L12 3Z" />
+              </svg>
+            </motion.div>
+          </div>
+          <span className="text-[10px] font-mono text-sky-300 font-semibold mt-1.5">
+            Vercel Control
+          </span>
+        </div>
+
+        {/* Right: Telemetry */}
+        <div className="relative z-10 flex flex-col space-y-2 text-right">
+          <div className="px-2.5 py-1 rounded-lg bg-blue-500/10 border border-blue-500/30 text-[10px] font-mono text-sky-400">
+            VS CODE API
+          </div>
+          <div className="px-2.5 py-1 rounded-lg bg-black/60 border border-border/50 text-[10px] font-mono text-muted-foreground">
+            TypeScript + esbuild
+          </div>
+          <div className="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/40 text-[10px] font-mono flex items-center justify-end gap-1.5">
+            <span className="size-1.5 rounded-full bg-emerald-400 animate-ping" />
+            <span>MARKETPLACE LIVE</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   // 1. CarrotKart.live — E-Commerce Motion Graphics
   if (id === "carrotkart-live") {
@@ -698,7 +792,7 @@ const MotionGraphicsCard = ({
               className="inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-mono text-primary font-bold hover:bg-primary hover:text-primary-foreground transition-all shadow-sm"
             >
               <Globe className="h-3.5 w-3.5" />
-              <span>Launch</span>
+              <span>{work.id === "vercel-extension" ? "Marketplace" : "Launch"}</span>
             </a>
           )}
           <span className="text-xs font-mono text-muted-foreground group-hover:text-primary font-medium flex items-center gap-1 transition-colors">
@@ -1109,6 +1203,7 @@ export const SelectedWorks: React.FC = () => {
 
   const filterCategories = [
     "All",
+    "Developer Tools",
     "Full-Stack",
     "Generative AI",
     "Production Live",
@@ -1334,7 +1429,11 @@ export const SelectedWorks: React.FC = () => {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-xs font-semibold hover:bg-primary/90 transition-all shadow-md shadow-primary/20 cursor-pointer"
                     >
-                      <span>Visit Live Site</span>
+                      <span>
+                        {activeModal.id === "vercel-extension"
+                          ? "View on VS Code Marketplace"
+                          : "Visit Live Site"}
+                      </span>
                       <ExternalLink className="h-3.5 w-3.5" />
                     </a>
                   )}

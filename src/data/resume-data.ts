@@ -2,7 +2,7 @@ export interface PersonalWork {
   id: string;
   title: string;
   subtitle: string;
-  category: "Full-Stack" | "Generative AI" | "Creative Tech" | "Systems";
+  category: "Full-Stack" | "Generative AI" | "Creative Tech" | "Systems" | "Developer Tools" | "BackEnd";
   description: string;
   highlights: string[];
   techStack: string[];
@@ -36,6 +36,25 @@ export const PERSONAL_DATA = {
   },
 
   works: [
+    {
+      id: "vercel-extension",
+      title: "Vercel Extension",
+      subtitle: "VS Code Extension for Vercel Management & Observability",
+      category: "Developer Tools",
+      description:
+        "Production-grade Visual Studio Code extension bringing the complete Vercel management suite directly into the editor. Trigger instant deployments, inspect real-time runtime log streams, synchronize environment variables (.env.local), and diagnose configuration drift without switching contexts.",
+      highlights: [
+        "Integrated VS Code dashboard for one-click preview & production deployments and instant rollbacks",
+        "Real-time runtime log streaming and bi-directional environment variable synchronization",
+        "Automated cloud drift detection comparing local project settings against remote Vercel environments",
+      ],
+      techStack: ["TypeScript", "VS Code Extension API", "Vercel REST API", "Node.js", "esbuild"],
+      githubUrl: "https://github.com/Saikiran8844/vercel-extension",
+      liveUrl: "https://marketplace.visualstudio.com/items?itemName=saikiran-n.vercel",
+      imageUrl: "/brands/vercel-icon.png",
+      gradient: "from-blue-600/20 via-sky-500/10 to-transparent",
+      accentColor: "#0070f3",
+    },
     {
       id: "carrotkart-live",
       title: "CarrotKart.live",

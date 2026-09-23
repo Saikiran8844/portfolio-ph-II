@@ -259,11 +259,10 @@ export const OrbitalConstellation: React.FC<OrbitalConstellationProps> = ({
           >
             {/* The Image Node (Clean photograph/image with minimalist border like reference) */}
             <div
-              className={`relative overflow-hidden transition-all duration-300 ${
-                isActive
-                  ? "border border-foreground/90 dark:border-white/90 shadow-2xl ring-1 ring-primary/40"
-                  : "border border-foreground/20 dark:border-white/25 hover:border-foreground/60 dark:hover:border-white/60 opacity-85 hover:opacity-100"
-              }`}
+              className={`relative overflow-hidden transition-all duration-300 ${isActive
+                ? "border border-foreground/90 dark:border-white/90 shadow-2xl ring-1 ring-primary/40"
+                : "border border-foreground/20 dark:border-white/25 hover:border-foreground/60 dark:hover:border-white/60 opacity-85 hover:opacity-100"
+                }`}
               style={{
                 width: node.width,
                 height: node.height,
@@ -299,7 +298,7 @@ export const OrbitalConstellation: React.FC<OrbitalConstellationProps> = ({
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 4, scale: 0.97 }}
                   transition={{ duration: 0.2, ease: "easeOut" }}
-                  className="absolute left-1/2 -translate-x-1/2 top-full mt-2 z-40 w-64 sm:w-72 p-3 text-left pointer-events-none rounded-lg bg-background/95 dark:bg-neutral-950/95 border border-border/80 dark:border-white/20 backdrop-blur-md shadow-2xl"
+                  className="absolute left-1/2 -translate-x-1/2 top-full mt-2 z-100 w-64 sm:w-72 p-3 text-left pointer-events-none rounded-lg bg-background/95 dark:bg-neutral-950/95 border border-border/80 dark:border-white/20 backdrop-blur-md shadow-2xl"
                 >
                   {/* Brand Title / Logo Row */}
                   <div className="flex items-center gap-2 mb-1.5">
@@ -342,7 +341,7 @@ export const OrbitalConstellation: React.FC<OrbitalConstellationProps> = ({
       })}
 
       {/* BOTTOM FOOTER BAR (Matching Reference: (c) Info on Left, ACCÈS CLIENT on Right) */}
-      <div className="absolute bottom-2 inset-x-0 px-4 sm:px-8 flex items-center justify-between text-xs font-mono text-muted-foreground z-30 pointer-events-auto">
+      <div className=" hidden absolute bottom-2 inset-x-0 px-4 sm:px-8 flex items-center justify-between text-xs font-mono text-muted-foreground z-30 pointer-events-auto">
         {/* Left: Global Client Network badge */}
         <div className="flex items-center gap-2">
           <Globe className="size-3.5 text-muted-foreground/70" />
