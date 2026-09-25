@@ -179,7 +179,6 @@ export default function CreativeFooter() {
               { label: "Selected Works", href: "#works" },
               { label: "Services & Capabilities", href: "#services" },
               { label: "Blogs & Technical Insights", href: "#blogs" },
-              { label: "Client Reviews & Feedback", href: "#testimonials" },
               { label: "Get In Touch", href: "#contact" },
             ].map((item, i) => (
               <motion.div

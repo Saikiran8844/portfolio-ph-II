@@ -7,7 +7,6 @@ import { TimelineDemo } from "@/components/sections/home/timeline-demo";
 import { SelectedWorks } from "@/components/sections/works/selected-works";
 import ServicesSection from "@/components/sections/services/services-section";
 import { BlogsSection } from "@/components/sections/blogs/blogs-section";
-import { Testimonials } from "@/components/sections/home/testimonials";
 import CalBooking from "@/components/sections/home/cal-booking";
 import Preloader from "@/components/common/preloader";
 
@@ -51,12 +50,7 @@ export default function Home() {
         <BlogsSection />
       </section>
 
-      {/* 6. Wall of Trust, Client Reviews & Testimonials */}
-      <section id="testimonials" className="w-full scroll-mt-24">
-        <Testimonials />
-      </section>
-
-      {/* 7. Contact & Schedule Call */}
+      {/* 6. Contact & Schedule Call */}
       <section id="contact" className="w-full scroll-mt-24">
         <CalBooking />
       </section>

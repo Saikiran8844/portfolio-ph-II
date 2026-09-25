@@ -12,7 +12,6 @@ const navItems = [
   { name: "PROJECTS", href: "#works", id: "works" },
   { name: "SERVICES", href: "#services", id: "services" },
   { name: "BLOGS", href: "#blogs", id: "blogs" },
-  { name: "REVIEWS", href: "#testimonials", id: "testimonials" },
   { name: "CONTACT", href: "#contact", id: "contact" },
 ];
 
@@ -33,7 +32,6 @@ export const Navbar: React.FC = () => {
         "works",
         "services",
         "blogs",
-        "testimonials",
         "contact",
       ];
       const scrollPosition = window.scrollY + 220;
