@@ -1,21 +1,30 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  X,
   Clock,
   Calendar,
-  Sparkles,
   Check,
   Copy,
-  ArrowRight,
   Bookmark,
   Share2,
   TrendingUp,
+  ArrowLeft,
 } from "lucide-react";
 import { BlogPost } from "@/data/blogs-data";
 import { toast } from "sonner";
+import { useLenis } from "lenis/react";
+
+const RED = "oklch(59.71% 0.23 23.86)";
+const RED_RGBA = "rgba(201, 58, 42,";
+
+const CORNERS = [
+  { id: "tl", top: 24, left: 24 },
+  { id: "tr", top: 24, right: 24 },
+  { id: "bl", bottom: 24, left: 24 },
+  { id: "br", bottom: 24, right: 24 },
+] as const;
 
 interface BlogReaderModalProps {
   post: BlogPost | null;
@@ -29,6 +38,39 @@ export const BlogReaderModal: React.FC<BlogReaderModalProps> = ({
   onClose,
 }) => {
   const [copiedCode, setCopiedCode] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const lenis = useLenis();
+
+  // Escape key + body scroll lock + Lenis stop/start (Fixes scroll triggering main page)
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+
+    if (isOpen) {
+      document.addEventListener("keydown", onKey);
+      document.body.style.overflow = "hidden";
+      lenis?.stop();
+    } else {
+      document.body.style.overflow = "";
+      lenis?.start();
+    }
+
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+      lenis?.start();
+    };
+  }, [isOpen, onClose, lenis]);
+
+  // Track reading scroll progress
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const target = e.currentTarget;
+    const progress = target.scrollTop / (target.scrollHeight - target.clientHeight);
+    setScrollProgress(Math.min(1, Math.max(0, progress)));
+  };
 
   if (!isOpen || !post) return null;
 
@@ -48,120 +90,220 @@ export const BlogReaderModal: React.FC<BlogReaderModalProps> = ({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 overflow-y-auto">
-        {/* Backdrop */}
+      {isOpen && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={onClose}
-          className="fixed inset-0 bg-black/80 backdrop-blur-md"
-        />
-
-        {/* Modal Container */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96, y: 15 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.96, y: 15 }}
-          transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 flex flex-col w-full max-w-2xl max-h-[88vh] overflow-hidden rounded-3xl border border-border/80 bg-background/95 shadow-2xl backdrop-blur-2xl"
+          initial={{ clipPath: "circle(0% at 50% 50%)" }}
+          animate={{ clipPath: "circle(150% at 50% 50%)" }}
+          exit={{ clipPath: "circle(0% at 50% 50%)" }}
+          transition={{ duration: 0.88, ease: [0.76, 0, 0.24, 1] }}
+          className="fixed inset-0 z-210 overflow-y-auto"
+          style={{ background: "#080808" }}
+          aria-modal="true"
+          role="dialog"
+          aria-label="Article Reader"
+          data-lenis-prevent="true"
+          onWheel={(e) => e.stopPropagation()}
+          onScroll={handleScroll}
+          ref={containerRef}
         >
-          {/* Ambient Glow */}
+          {/* Reading Progress Bar at the Very Top */}
           <div
-            className="pointer-events-none absolute -right-24 -top-24 size-64 rounded-full blur-3xl opacity-20"
-            style={{ backgroundColor: post.accentColor }}
+            className="fixed top-0 left-0 right-0 h-1 z-30 transition-all duration-150 pointer-events-none"
+            style={{
+              width: `${scrollProgress * 100}%`,
+              backgroundColor: RED,
+            }}
           />
 
-          {/* Sticky Header */}
-          <div className="relative z-10 flex items-center justify-between border-b border-border/40 px-6 py-4 shrink-0 bg-background/80 backdrop-blur-md">
-            <div className="flex items-center gap-2">
-              <span
-                className="inline-flex items-center gap-1 rounded-full border px-3 py-1 text-xs font-mono font-medium"
-                style={{
-                  borderColor: `${post.accentColor}40`,
-                  backgroundColor: `${post.accentColor}15`,
-                  color: post.accentColor,
-                }}
-              >
-                <Sparkles className="size-3" />
-                {post.category}
-              </span>
-              <div className="hidden sm:flex items-center gap-3 text-xs font-mono text-muted-foreground/70">
-                <span className="flex items-center gap-1">
-                  <Clock className="size-3" />
-                  {post.readTime}
+          {/* Subtle Fractal Noise Grain Overlay (CollabModal signature) */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none fixed inset-0 z-0 opacity-[0.04]"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+              backgroundSize: "200px",
+            }}
+          />
+
+          {/* Red Corner Brackets (CollabModal signature) */}
+          {CORNERS.map((c) => (
+            <div
+              key={c.id}
+              aria-hidden="true"
+              className="fixed w-9 h-9 z-20 pointer-events-none hidden sm:block"
+              style={{
+                ...("top" in c ? { top: (c as { top: number }).top } : {}),
+                ...("bottom" in c ? { bottom: (c as { bottom: number }).bottom } : {}),
+                ...("left" in c ? { left: (c as { left: number }).left } : {}),
+                ...("right" in c ? { right: (c as { right: number }).right } : {}),
+                borderTop: c.id.includes("t") ? `1px solid ${RED_RGBA} 0.5)` : "none",
+                borderBottom: c.id.includes("b") ? `1px solid ${RED_RGBA} 0.5)` : "none",
+                borderLeft: c.id.includes("l") ? `1px solid ${RED_RGBA} 0.5)` : "none",
+                borderRight: c.id.includes("r") ? `1px solid ${RED_RGBA} 0.5)` : "none",
+              }}
+            />
+          ))}
+
+          {/* Scrollable Article Layout */}
+          <div className="relative z-10 min-h-screen flex flex-col justify-between max-w-4xl mx-auto px-6 sm:px-12 py-8 sm:py-10">
+            {/* Top Navigation & Action Bar */}
+            <div className="flex items-center justify-between pb-6">
+              <div className="flex items-center gap-3">
+                <span
+                  className="w-2 h-2 rounded-full animate-pulse"
+                  style={{ backgroundColor: RED }}
+                />
+                <span
+                  style={{
+                    fontFamily: "var(--font-poppins)",
+                    color: RED,
+                    fontSize: "10px",
+                    letterSpacing: "0.3em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  ✦ {post.category} // TECHNICAL ESSAY
                 </span>
-                <span>&middot;</span>
-                <span className="flex items-center gap-1">
-                  <Calendar className="size-3" />
-                  {post.date}
-                </span>
+              </div>
+
+              {/* Actions & CollabModal Close Button */}
+              <div className="flex items-center gap-4">
+                <button
+                  type="button"
+                  onClick={handleShare}
+                  className="p-1.5 text-white/40 hover:text-white transition-colors cursor-pointer"
+                  title="Share Article Link"
+                  aria-label="Share article"
+                >
+                  <Share2 className="w-4 h-4" />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="flex items-center gap-3 cursor-pointer group"
+                  style={{ background: "none", border: "none", padding: 0 }}
+                  aria-label="Close article"
+                >
+                  <span
+                    style={{
+                      fontFamily: "var(--font-poppins)",
+                      fontSize: "10px",
+                      letterSpacing: "0.3em",
+                      textTransform: "uppercase",
+                      color: "rgba(255,255,255,0.4)",
+                      transition: "color 0.2s",
+                    }}
+                    className="group-hover:text-white"
+                  >
+                    CLOSE
+                  </span>
+                  <span
+                    className="text-lg leading-none transition-transform duration-300 group-hover:rotate-90 group-hover:scale-110"
+                    style={{ color: RED }}
+                  >
+                    ✕
+                  </span>
+                </button>
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={handleShare}
-                className="rounded-lg border border-border/60 p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors cursor-pointer"
-                title="Share Article"
-                aria-label="Share article"
-              >
-                <Share2 className="size-4" />
-              </button>
-              <button
-                type="button"
-                onClick={onClose}
-                className="rounded-lg border border-border/60 p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors cursor-pointer"
-                aria-label="Close article modal"
-              >
-                <X className="size-4" />
-              </button>
-            </div>
-          </div>
+            {/* Thin Top Rule */}
+            <div
+              className="w-full mb-10 shrink-0"
+              style={{
+                height: "1px",
+                background: "rgba(255,255,255,0.08)",
+              }}
+            />
 
-          {/* Scrollable Article Body */}
-          <div className="overflow-y-auto px-6 sm:px-8 py-6 space-y-6 scrollbar-thin">
-            {/* Title & Subtitle */}
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground leading-tight">
+            {/* Article Header */}
+            <div className="mb-10">
+              <div className="flex items-center gap-3 text-xs font-mono text-white/40 mb-4">
+                <span className="flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5" />
+                  {post.readTime}
+                </span>
+                <span>•</span>
+                <span className="flex items-center gap-1.5">
+                  <Calendar className="w-3.5 h-3.5" />
+                  {post.date}
+                </span>
+              </div>
+
+              {/* Giant Kinetic Article Title */}
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-white leading-[1.08] mb-4">
                 {post.title}
-              </h2>
-              <p className="mt-2 text-base text-muted-foreground leading-relaxed">
+              </h1>
+
+              <p className="text-base sm:text-lg text-white/60 leading-relaxed font-normal mb-6">
                 {post.subtitle}
               </p>
+
+              {/* Tags Bar */}
+              <div className="flex flex-wrap items-center gap-2">
+                {post.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 rounded-full text-xs font-mono border border-white/10 bg-white/[0.03] text-white/70"
+                  >
+                    #{tag}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            {/* Highlight Metric Banner */}
+            {/* Highlight Metric Banner (if available) */}
             {post.highlightMetric && (
-              <div className="flex items-center gap-4 rounded-2xl border border-primary/25 bg-primary/5 p-4">
-                <div className="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary shrink-0">
-                  <TrendingUp className="size-6" />
+              <div
+                className="mb-10 flex items-center gap-5 p-6 rounded-2xl border"
+                style={{
+                  borderColor: `${RED_RGBA} 0.35)`,
+                  backgroundColor: `${RED_RGBA} 0.07)`,
+                }}
+              >
+                <div
+                  className="flex w-14 h-14 items-center justify-center rounded-xl shrink-0"
+                  style={{
+                    backgroundColor: `${RED_RGBA} 0.18)`,
+                    color: RED,
+                  }}
+                >
+                  <TrendingUp className="w-7 h-7" />
                 </div>
                 <div>
-                  <div className="text-2xl font-bold font-mono text-foreground">
+                  <div className="text-3xl sm:text-4xl font-black font-mono text-white tracking-tight leading-none mb-1">
                     {post.highlightMetric.value}
                   </div>
-                  <div className="text-xs text-muted-foreground">
+                  <div className="text-xs font-mono uppercase tracking-widest text-white/60">
                     {post.highlightMetric.label}
                   </div>
                 </div>
               </div>
             )}
 
-            {/* Key Takeaways Box */}
-            <div className="rounded-2xl border border-border/60 bg-muted/20 p-5">
-              <h3 className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-primary font-semibold mb-3">
-                <Bookmark className="size-3.5" />
+            {/* Key Strategic Takeaways Box */}
+            <div className="mb-12 rounded-2xl border border-white/10 bg-[#0d0d0d] p-6 sm:p-8">
+              <h3
+                className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] font-bold mb-5"
+                style={{ color: RED }}
+              >
+                <Bookmark className="w-4 h-4" />
                 Key Strategic Takeaways
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-4">
                 {post.keyTakeaways.map((point, idx) => (
                   <li
                     key={idx}
-                    className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/90 leading-relaxed"
+                    className="flex items-start gap-3.5 text-xs sm:text-sm text-white/85 leading-relaxed"
                   >
-                    <span className="flex size-4 items-center justify-center rounded-full bg-primary/20 text-primary shrink-0 mt-0.5 text-[10px] font-bold">
+                    <span
+                      className="flex w-5 h-5 items-center justify-center rounded-full shrink-0 mt-0.5 text-[10px] font-mono font-bold"
+                      style={{
+                        backgroundColor: `${RED_RGBA} 0.22)`,
+                        color: "#ffffff",
+                      }}
+                    >
                       {idx + 1}
                     </span>
                     <span>{point}</span>
@@ -170,104 +312,118 @@ export const BlogReaderModal: React.FC<BlogReaderModalProps> = ({
               </ul>
             </div>
 
-            {/* Main Article Content */}
-            <div className="space-y-5 text-sm sm:text-[15px] leading-relaxed text-muted-foreground">
-              <p className="font-medium text-foreground/90 border-l-2 border-primary/50 pl-4 italic">
+            {/* Main Article Body */}
+            <div className="space-y-8 text-sm sm:text-base leading-relaxed text-white/75 pb-16">
+              {/* Executive Intro */}
+              <p
+                className="font-medium text-white/95 pl-5 italic leading-relaxed text-base sm:text-lg"
+                style={{ borderLeft: `3px solid ${RED}` }}
+              >
                 {post.content.intro}
               </p>
 
+              {/* Sections */}
               {post.content.sections.map((section, sIdx) => (
-                <div key={sIdx} className="space-y-3 pt-2">
-                  <h3 className="text-lg sm:text-xl font-bold text-foreground">
+                <div key={sIdx} className="space-y-4 pt-4">
+                  <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight uppercase">
                     {section.heading}
                   </h3>
-                  <p>{section.body}</p>
+                  <p className="leading-relaxed text-white/70">{section.body}</p>
 
-                  {/* Code Snippet Box */}
+                  {/* Architecture Code Snippet Terminal */}
                   {section.codeSnippet && (
-                    <div className="relative mt-3 rounded-xl border border-border/70 bg-zinc-950 p-4 font-mono text-xs text-zinc-200 overflow-x-auto">
-                      <div className="flex items-center justify-between pb-2 border-b border-zinc-800 mb-2">
-                        <span className="text-[11px] text-zinc-500">Code Architecture</span>
+                    <div className="relative mt-4 rounded-xl border border-white/10 bg-[#040404] p-5 font-mono text-xs overflow-x-auto shadow-2xl">
+                      <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10 text-[10px] text-white/40 uppercase tracking-widest">
+                        <span className="flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-red-500/70" />
+                          <span className="w-2 h-2 rounded-full bg-yellow-500/70" />
+                          <span className="w-2 h-2 rounded-full bg-green-500/70" />
+                          <span className="ml-2">ARCHITECTURE SNIPPET</span>
+                        </span>
+
                         <button
                           type="button"
                           onClick={() => handleCopy(section.codeSnippet!)}
-                          className="flex items-center gap-1 text-[11px] text-zinc-400 hover:text-white transition-colors cursor-pointer"
+                          className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer text-white/60"
                         >
                           {copiedCode ? (
                             <>
-                              <Check className="size-3 text-emerald-400" />
-                              <span className="text-emerald-400">Copied</span>
+                              <Check className="w-3.5 h-3.5 text-emerald-400" />
+                              <span className="text-emerald-400">COPIED</span>
                             </>
                           ) : (
                             <>
-                              <Copy className="size-3" />
-                              <span>Copy</span>
+                              <Copy className="w-3.5 h-3.5" />
+                              <span>COPY CODE</span>
                             </>
                           )}
                         </button>
                       </div>
-                      <pre className="text-xs leading-relaxed text-emerald-400/95">
-                        {section.codeSnippet}
+                      <pre className="text-neutral-200 overflow-x-auto leading-relaxed">
+                        <code>{section.codeSnippet}</code>
                       </pre>
                     </div>
                   )}
 
-                  {/* Bullet Tips */}
+                  {/* Implementation Tips */}
                   {section.tips && (
-                    <ul className="space-y-1.5 pt-2">
-                      {section.tips.map((tip, tIdx) => (
-                        <li
-                          key={tIdx}
-                          className="flex items-start gap-2 text-xs sm:text-sm text-muted-foreground"
-                        >
-                          <span className="text-primary mt-0.5">❯</span>
-                          <span>{tip}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="mt-4 rounded-xl border border-white/10 bg-white/[0.02] p-5">
+                      <div
+                        className="text-[10px] font-mono uppercase tracking-widest font-bold mb-3"
+                        style={{ color: RED }}
+                      >
+                        PRODUCTION TIPS & HEURISTICS
+                      </div>
+                      <ul className="space-y-2 text-xs sm:text-sm text-white/70">
+                        {section.tips.map((tip, tIdx) => (
+                          <li key={tIdx} className="flex items-start gap-2.5">
+                            <span style={{ color: RED }}>✦</span>
+                            <span>{tip}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   )}
                 </div>
               ))}
 
-              {/* Conclusion */}
-              <div className="rounded-2xl border border-border/50 bg-card/60 p-5 mt-6">
-                <h4 className="text-sm font-semibold text-foreground mb-1">
-                  Bottom Line
+              {/* Conclusion Block */}
+              <div
+                className="rounded-2xl border p-6 sm:p-8 mt-8"
+                style={{
+                  borderColor: `${RED_RGBA} 0.35)`,
+                  backgroundColor: `${RED_RGBA} 0.05)`,
+                }}
+              >
+                <h4 className="text-xs font-mono uppercase tracking-[0.25em] text-white/40 mb-3 font-bold">
+                  CONCLUSION & OUTLOOK
                 </h4>
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                <p className="text-white/95 leading-relaxed text-sm sm:text-base font-normal">
                   {post.content.conclusion}
                 </p>
               </div>
             </div>
 
-            {/* Author Footer */}
-            <div className="pt-4 border-t border-border/40 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="size-10 rounded-full border border-primary/40 bg-primary/10 flex items-center justify-center font-bold text-primary text-xs">
-                  SN
-                </div>
-                <div>
-                  <div className="text-sm font-semibold text-foreground">
-                    Saikiran Nannapaneni
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    Software Engineer &amp; Shopify Builder
-                  </div>
-                </div>
-              </div>
-
+            {/* Bottom Navigation & Close Footer */}
+            <div className="pt-8 border-t border-white/10 flex items-center justify-between">
               <button
                 type="button"
                 onClick={onClose}
-                className="inline-flex items-center gap-1.5 rounded-xl bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground hover:bg-primary/90 transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 text-xs font-mono tracking-wider uppercase text-white/60 hover:text-white transition-colors cursor-pointer group"
               >
-                <span>Done Reading</span>
-                <ArrowRight className="size-3.5" />
+                <ArrowLeft className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1" />
+                <span>RETURN TO ARCHIVE</span>
               </button>
+
+              <span className="text-[10px] font-mono tracking-widest text-white/30 uppercase">
+                ENGINEERING INTELLIGENCE // SAIKIRAN N.
+              </span>
             </div>
           </div>
         </motion.div>
-      </div>
+      )}
     </AnimatePresence>
   );
 };
+
+export default BlogReaderModal;

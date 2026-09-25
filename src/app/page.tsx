@@ -46,7 +46,7 @@ export default function Home() {
       </section>
 
       {/* 5. Engineering Insights, Shopify Architecture & Growth Blogs */}
-      <section id="blogs" className="w-full scroll-mt-24">
+      <section className="w-full">
         <BlogsSection />
       </section>
 
