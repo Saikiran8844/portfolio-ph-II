@@ -455,7 +455,7 @@ const AboutMe = () => {
               style={{
                 animation: "hireMeShake 0.6s ease-in-out infinite",
               }}
-              title={isCrawling ? "Catch Me!" : "Hire Me"}
+              title={isCrawling ? "Catch Me!" : "Donwload Resume"}
             >
               <span className="relative flex h-2 w-2">
                 <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isCrawling ? "bg-amber-400" : "bg-primary"
@@ -463,7 +463,7 @@ const AboutMe = () => {
                 <span className={`relative inline-flex rounded-full h-2 w-2 ${isCrawling ? "bg-amber-400" : "bg-primary"
                   }`} />
               </span>
-              <span>{isCrawling ? "Catch Me!" : "Hire Me"}</span>
+              <span>{isCrawling ? "Catch Me!" : "Download Resume"}</span>
               <Briefcase className="size-3.5 transition-transform group-hover:scale-110" />
             </button>
 
@@ -485,7 +485,7 @@ const AboutMe = () => {
                   <CheckCircle2 className="size-4 text-emerald-400 shrink-0 animate-pulse" />
                   <div className="flex flex-col text-left">
                     <span className="font-bold text-white text-[11px]">
-                      {isCaught ? "🎉 Fast catch!" : "🎯 Ready to hire?"}
+                      {isCaught ? "🎉 Fast catch!" : " Download Resume"}
                     </span>
                     <span className="text-white/70 text-[9.5px]">
                       Saikiran&apos;s Resume Ready
